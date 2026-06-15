@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <nav className={`fixed top-0 w-full p-6 flex justify-between items-center z-50 transition-all ${isHome ? 'bg-transparent' : 'bg-zinc-950 border-b border-zinc-800'}`}>
       <Link to="/" className="text-xl font-black uppercase tracking-tighter">
-        Off Streets
+        Off Streets - On Sports
       </Link>
       <div className="flex gap-6 font-bold uppercase text-sm items-center">
         <Link to="/customise" className="hover:text-brand transition-colors">Portfolio</Link>
