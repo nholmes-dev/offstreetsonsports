@@ -68,17 +68,19 @@ export default function Customise() {
     if (cart.length === 1) setStep(1);
   };
 
-  const handleSubmit = async () => {
+const handleSubmit = async () => {
     setStatus('submitting');
     
-    // Replace with the real Formspree endpoint
-    const formspreeUrl = "https://formspree.io/f/YOUR_FORMSPREE_ID"; 
+    // Make sure this is replaced with the actual ID from her Formspree dashboard
+    const formspreeUrl = "https://formspree.io/f/xrevjbrg"; 
     
     try {
       const response = await fetch(formspreeUrl, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        // Send the entire array of items to her inbox
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json" // <-- THIS IS THE MISSING MAGIC KEY
+        },
         body: JSON.stringify({
           orderItems: cart,
           grandTotal: `£${calculateGrandTotal()}`
@@ -88,10 +90,14 @@ export default function Customise() {
       if (response.ok) {
         setStatus('success');
       } else {
+        // This will log the exact reason it failed to your browser's developer tools
+        const errorData = await response.json();
+        console.error("Formspree Error:", errorData);
         setStatus('idle');
         alert("There was an issue submitting your request. Please try again.");
       }
     } catch (error) {
+      console.error("Network Error:", error);
       setStatus('idle');
       alert("Network error. Please try again.");
     }
