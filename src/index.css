@@ -2,7 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #09090b;
+/* 1. Target both html and body to paint the browser canvas dark */
+html, body {
+  background-color: #09090b; /* Exact match for zinc-950 */
   color: white;
+  
+  /* 2. Pro-tip: This stops the white "bounce" effect when scrolling too far on iPhones */
+  overscroll-behavior-y: none; 
+}
+
+/* 3. Ensure the React root element never shrinks vertically */
+#root {
+  background-color: #09090b;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
