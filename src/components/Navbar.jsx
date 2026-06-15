@@ -7,9 +7,9 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 w-full p-4 md:p-6 flex justify-between items-center z-50 transition-all ${isHome ? 'bg-transparent' : 'bg-zinc-950 border-b border-zinc-800'}`}>
-      <Link to="/" className="text-xl md:text-2xl font-black uppercase tracking-tighter">
-        Off Streets - On Sports
-      </Link>
+<Link to="/" className="text-xl md:text-2xl font-black uppercase tracking-tighter">
+  OFF STREETS - <span className="text-brand">ON SPORTS</span>
+</Link>
       
       <div className="flex gap-4 md:gap-8 items-center">
         {/* Contact & Social Icons */}
