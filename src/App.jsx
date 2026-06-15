@@ -6,7 +6,7 @@ import Customise from './pages/Customise';
 export default function App() {
   return (
     <Router>
-      <div className="bg-zinc-950 min-h-screen text-white font-sans selection:bg-brand selection:text-black flex flex-col">
+<div className="bg-zinc-950 min-h-screen text-white font-sans selection:bg-brand selection:text-black flex flex-col overflow-x-hidden">
         <Navbar />
         <main className="flex-grow">
           <Routes>
