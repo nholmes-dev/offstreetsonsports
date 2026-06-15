@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronLeft, Upload, CheckCircle, Calculator, Plus, Trash2 } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Upload, CheckCircle, Calculator, Plus, Trash2, User } from 'lucide-react';
 
 const pricingMap = {
   'Boxing Shorts': 45,
@@ -9,7 +9,6 @@ const pricingMap = {
   'Training Vests': 25
 };
 
-// We define an empty item so we can easily reset the form
 const emptyItem = {
   garmentType: '',
   quantity: 1,
@@ -22,16 +21,20 @@ export default function Customise() {
   const [step, setStep] = useState(1);
   const [status, setStatus] = useState('idle');
   
-  // The 'cart' holds all finished items
+  // NEW: Customer Info State
+  const [customerInfo, setCustomerInfo] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    gymOrCompany: ''
+  });
+
   const [cart, setCart] = useState([]);
-  
-  // 'currentItem' holds the gear they are currently building
   const [currentItem, setCurrentItem] = useState(emptyItem);
 
   const nextStep = () => setStep((prev) => prev + 1);
   const prevStep = () => setStep((prev) => prev - 1);
 
-  // --- PRICING LOGIC ---
   const calculateItemTotal = (item) => {
     const basePrice = pricingMap[item.garmentType] || 0;
     const quantity = parseInt(item.quantity) || 1;
@@ -40,48 +43,45 @@ export default function Customise() {
   };
 
   const calculateGrandTotal = () => {
-    // Sum up the cart
     const cartTotal = cart.reduce((sum, item) => sum + calculateItemTotal(item), 0);
-    // Add the current item being built (if it has a garment type selected)
     const currentTotal = currentItem.garmentType ? calculateItemTotal(currentItem) : 0;
     return cartTotal + currentTotal;
   };
 
-  // --- CART NAVIGATION LOGIC ---
   const handleReviewOrder = () => {
-    // Save the current item to the cart, then go to review screen
     setCart([...cart, currentItem]);
     setCurrentItem(emptyItem);
-    setStep(4);
+    setStep(5); // Shifted to Step 5
   };
 
   const handleAddAnotherItem = () => {
-    // Save current item, reset the builder, and loop back to step 1
     setCart([...cart, currentItem]);
     setCurrentItem(emptyItem);
-    setStep(1);
+    setStep(2); // Loop back to Gear Selection, NOT Customer Info
   };
 
   const removeItem = (indexToRemove) => {
     setCart(cart.filter((_, index) => index !== indexToRemove));
-    // If cart is empty after deleting, force them back to step 1
-    if (cart.length === 1) setStep(1);
+    // If cart is empty after deleting, force them back to Gear Selection
+    if (cart.length === 1) setStep(2); 
   };
 
-const handleSubmit = async () => {
+  const handleSubmit = async () => {
     setStatus('submitting');
     
-    // Make sure this is replaced with the actual ID from her Formspree dashboard
-    const formspreeUrl = "https://formspree.io/f/xrevjbrg"; 
+    // Make sure to use her actual Formspree ID here!
+    const formspreeUrl = "https://formspree.io/f/YOUR_FORMSPREE_ID"; 
     
     try {
       const response = await fetch(formspreeUrl, {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",
-          "Accept": "application/json" // <-- THIS IS THE MISSING MAGIC KEY
+          "Accept": "application/json"
         },
+        // We now send the customer info alongside the cart
         body: JSON.stringify({
+          customerDetails: customerInfo,
           orderItems: cart,
           grandTotal: `£${calculateGrandTotal()}`
         }),
@@ -90,16 +90,12 @@ const handleSubmit = async () => {
       if (response.ok) {
         setStatus('success');
       } else {
-        // This will log the exact reason it failed to your browser's developer tools
-        const errorData = await response.json();
-        console.error("Formspree Error:", errorData);
         setStatus('idle');
         alert("There was an issue submitting your request. Please try again.");
       }
     } catch (error) {
-      console.error("Network Error:", error);
       setStatus('idle');
-      alert("Network error. Please try again.");
+      alert("Network error. Please check your connection.");
     }
   };
 
@@ -109,13 +105,15 @@ const handleSubmit = async () => {
     exit: { x: -50, opacity: 0, transition: { duration: 0.2 } },
   };
 
-  // Success Screen
+  // Validation to ensure they don't skip Step 1
+  const isCustomerInfoValid = customerInfo.fullName.length > 2 && customerInfo.email.includes('@');
+
   if (status === 'success') {
     return (
       <div className="max-w-2xl mx-auto mt-12 p-6 text-center">
         <CheckCircle className="text-brand w-24 h-24 mx-auto mb-6" />
         <h2 className="text-4xl font-black uppercase mb-4">Request Sent!</h2>
-        <p className="text-zinc-400">Our team will review your specs and be in touch shortly to finalize your order and collect payment.</p>
+        <p className="text-zinc-400">Thanks, {customerInfo.fullName.split(' ')[0]}! Our team will review your specs and be in touch shortly.</p>
       </div>
     );
   }
@@ -123,10 +121,10 @@ const handleSubmit = async () => {
   return (
     <div className="max-w-3xl mx-auto p-6">
       
-      {/* Progress Bar (Only show if we aren't on the review screen) */}
-      {step < 4 && (
+      {/* Progress Bar (Updated to handle 4 steps before review) */}
+      {step < 5 && (
         <div className="mb-8 flex items-center justify-between gap-2">
-          {[1, 2, 3].map((i) => (
+          {[1, 2, 3, 4].map((i) => (
             <div key={i} className="h-2 w-full rounded-full bg-zinc-800 overflow-hidden">
               <div className={`h-full bg-brand transition-all duration-500 ${step >= i ? 'w-full' : 'w-0'}`} />
             </div>
@@ -137,9 +135,72 @@ const handleSubmit = async () => {
       <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 shadow-2xl relative overflow-hidden min-h-[500px] flex flex-col">
         <AnimatePresence mode="wait">
           
-          {/* STEP 1: GARMENT */}
+          {/* STEP 1: CUSTOMER INFO */}
           {step === 1 && (
             <motion.div key="s1" variants={slideVariants} initial="hidden" animate="visible" exit="exit" className="flex-grow flex flex-col">
+              <h2 className="text-2xl font-bold uppercase mb-2 flex items-center gap-3">
+                <User className="text-brand" /> Your Details
+              </h2>
+              <p className="text-zinc-400 mb-6">Let's get your contact info before we build your kit.</p>
+              
+              <div className="space-y-4 mb-8">
+                <div>
+                  <label className="block text-zinc-400 mb-1 font-bold uppercase text-xs">Full Name *</label>
+                  <input 
+                    type="text" 
+                    placeholder="e.g. Tyson Fury"
+                    value={customerInfo.fullName}
+                    onChange={(e) => setCustomerInfo({...customerInfo, fullName: e.target.value})}
+                    className="w-full bg-zinc-950 border border-zinc-700 rounded-lg p-3 focus:border-brand focus:outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-zinc-400 mb-1 font-bold uppercase text-xs">Email Address *</label>
+                  <input 
+                    type="email" 
+                    placeholder="e.g. champ@boxing.com"
+                    value={customerInfo.email}
+                    onChange={(e) => setCustomerInfo({...customerInfo, email: e.target.value})}
+                    className="w-full bg-zinc-950 border border-zinc-700 rounded-lg p-3 focus:border-brand focus:outline-none"
+                  />
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-zinc-400 mb-1 font-bold uppercase text-xs">Phone Number</label>
+                    <input 
+                      type="tel" 
+                      value={customerInfo.phone}
+                      onChange={(e) => setCustomerInfo({...customerInfo, phone: e.target.value})}
+                      className="w-full bg-zinc-950 border border-zinc-700 rounded-lg p-3 focus:border-brand focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-zinc-400 mb-1 font-bold uppercase text-xs">Gym / Team Name</label>
+                    <input 
+                      type="text" 
+                      value={customerInfo.gymOrCompany}
+                      onChange={(e) => setCustomerInfo({...customerInfo, gymOrCompany: e.target.value})}
+                      className="w-full bg-zinc-950 border border-zinc-700 rounded-lg p-3 focus:border-brand focus:outline-none"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-auto flex justify-end">
+                <button 
+                  onClick={nextStep} 
+                  disabled={!isCustomerInfoValid} 
+                  className="bg-brand text-black px-6 py-3 rounded-lg font-bold flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-lime-400 transition-colors"
+                >
+                  Start Building <ChevronRight size={20} />
+                </button>
+              </div>
+            </motion.div>
+          )}
+
+          {/* STEP 2: GARMENT SELECTION */}
+          {step === 2 && (
+            <motion.div key="s2" variants={slideVariants} initial="hidden" animate="visible" exit="exit" className="flex-grow flex flex-col">
               <h2 className="text-2xl font-bold uppercase mb-2">Select Your Gear</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {Object.keys(pricingMap).map((item) => (
@@ -158,17 +219,20 @@ const handleSubmit = async () => {
                  <div className="text-brand text-sm font-bold mb-4">You currently have {cart.length} item(s) in your cart.</div>
               )}
 
-              <div className="mt-auto flex justify-end">
-                <button onClick={nextStep} disabled={!currentItem.garmentType} className="bg-brand text-black px-6 py-3 rounded-lg font-bold flex items-center gap-2 disabled:opacity-50">
+              <div className="mt-auto flex justify-between">
+                <button onClick={prevStep} className="text-zinc-400 font-bold flex items-center gap-2 hover:text-white">
+                  <ChevronLeft size={20} /> Back
+                </button>
+                <button onClick={nextStep} disabled={!currentItem.garmentType} className="bg-brand text-black px-6 py-3 rounded-lg font-bold flex items-center gap-2 disabled:opacity-50 hover:bg-lime-400">
                   Next <ChevronRight size={20} />
                 </button>
               </div>
             </motion.div>
           )}
 
-          {/* STEP 2: QUANTITY */}
-          {step === 2 && (
-            <motion.div key="s2" variants={slideVariants} initial="hidden" animate="visible" exit="exit" className="flex-grow flex flex-col">
+          {/* STEP 3: QUANTITY */}
+          {step === 3 && (
+            <motion.div key="s3" variants={slideVariants} initial="hidden" animate="visible" exit="exit" className="flex-grow flex flex-col">
               <h2 className="text-2xl font-bold uppercase mb-6">How many do you need?</h2>
               <div className="mb-8">
                 <label className="block text-zinc-400 mb-2 font-bold uppercase text-sm">Total Quantity for {currentItem.garmentType}</label>
@@ -187,9 +251,9 @@ const handleSubmit = async () => {
             </motion.div>
           )}
 
-          {/* STEP 3: CUSTOMIZATION */}
-          {step === 3 && (
-            <motion.div key="s3" variants={slideVariants} initial="hidden" animate="visible" exit="exit" className="flex-grow flex flex-col">
+          {/* STEP 4: CUSTOMIZATION */}
+          {step === 4 && (
+            <motion.div key="s4" variants={slideVariants} initial="hidden" animate="visible" exit="exit" className="flex-grow flex flex-col">
               <h2 className="text-2xl font-bold uppercase mb-6">Make It Yours</h2>
               
               <div className="mb-6">
@@ -203,7 +267,6 @@ const handleSubmit = async () => {
                 />
               </div>
 
-              {/* NEW: Further Information Box */}
               <div className="mb-6">
                 <label className="block text-zinc-400 mb-2 font-bold uppercase text-sm">Precise Specs & Additional Info</label>
                 <textarea 
@@ -226,12 +289,11 @@ const handleSubmit = async () => {
               <div className="mt-auto flex justify-between items-end pt-8">
                 <button onClick={prevStep} className="text-zinc-400 font-bold flex items-center gap-2 hover:text-white"><ChevronLeft size={20} /> Back</button>
                 
-                {/* The new branching actions */}
-                <div className="flex gap-4">
-                  <button onClick={handleAddAnotherItem} className="border-2 border-zinc-700 text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:border-white transition-colors">
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button onClick={handleAddAnotherItem} className="border-2 border-zinc-700 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 hover:border-white transition-colors">
                     <Plus size={20} /> Add Gear
                   </button>
-                  <button onClick={handleReviewOrder} className="bg-brand text-black px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-lime-400 transition-colors">
+                  <button onClick={handleReviewOrder} className="bg-brand text-black px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-lime-400 transition-colors">
                     Review Order <ChevronRight size={20} />
                   </button>
                 </div>
@@ -239,16 +301,24 @@ const handleSubmit = async () => {
             </motion.div>
           )}
 
-          {/* STEP 4: REVIEW & SUBMIT */}
-          {step === 4 && (
-            <motion.div key="s4" variants={slideVariants} initial="hidden" animate="visible" exit="exit" className="flex-grow flex flex-col">
+          {/* STEP 5: REVIEW & SUBMIT */}
+          {step === 5 && (
+            <motion.div key="s5" variants={slideVariants} initial="hidden" animate="visible" exit="exit" className="flex-grow flex flex-col">
               <h2 className="text-2xl font-bold uppercase mb-6 flex justify-between items-center">
                 Review Your Kit
-                <button onClick={() => setStep(1)} className="text-sm border border-zinc-700 px-4 py-2 rounded text-zinc-300 hover:text-white hover:border-white transition flex gap-2 items-center">
-                   <Plus size={16}/> Add More Items
+                <button onClick={() => setStep(2)} className="text-sm border border-zinc-700 px-4 py-2 rounded text-zinc-300 hover:text-white hover:border-white transition flex gap-2 items-center">
+                   <Plus size={16}/> Add Gear
                 </button>
               </h2>
               
+              {/* Show Customer Info Summary */}
+              <div className="bg-zinc-950 rounded-lg p-4 mb-6 border border-zinc-800 text-sm text-zinc-300">
+                <div className="font-bold text-white mb-2 uppercase border-b border-zinc-800 pb-2">Your Details</div>
+                <div><span className="text-zinc-500">Name:</span> {customerInfo.fullName}</div>
+                <div><span className="text-zinc-500">Email:</span> {customerInfo.email}</div>
+                {customerInfo.gymOrCompany && <div><span className="text-zinc-500">Team/Gym:</span> {customerInfo.gymOrCompany}</div>}
+              </div>
+
               <div className="flex-grow overflow-y-auto mb-6 pr-2 space-y-4">
                 {cart.map((item, index) => (
                   <div key={index} className="bg-zinc-950 rounded-lg p-6 border border-zinc-800 relative group">
