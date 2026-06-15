@@ -9,7 +9,7 @@ export default function Landing() {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat -z-20"
         style={{ 
-          backgroundImage: "url('https://images.unsplash.com/photo-1509563268479-0f004cf3f58b?q=80&w=2070&auto=format&fit=crop')" 
+          backgroundImage: "url('/hero-bg.png')" 
         }}
       />
       
