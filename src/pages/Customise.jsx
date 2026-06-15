@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronLeft, Upload, CheckCircle, Calculator, Plus, Trash2, User } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Upload, CheckCircle, Calculator, Plus, Trash2, User, Info } from 'lucide-react';
 
 const pricingMap = {
   'Boxing Shorts': 45,
@@ -21,7 +21,6 @@ export default function Customise() {
   const [step, setStep] = useState(1);
   const [status, setStatus] = useState('idle');
   
-  // NEW: Customer Info State
   const [customerInfo, setCustomerInfo] = useState({
     fullName: '',
     email: '',
@@ -51,25 +50,24 @@ export default function Customise() {
   const handleReviewOrder = () => {
     setCart([...cart, currentItem]);
     setCurrentItem(emptyItem);
-    setStep(5); // Shifted to Step 5
+    setStep(5);
   };
 
   const handleAddAnotherItem = () => {
     setCart([...cart, currentItem]);
     setCurrentItem(emptyItem);
-    setStep(2); // Loop back to Gear Selection, NOT Customer Info
+    setStep(2);
   };
 
   const removeItem = (indexToRemove) => {
     setCart(cart.filter((_, index) => index !== indexToRemove));
-    // If cart is empty after deleting, force them back to Gear Selection
     if (cart.length === 1) setStep(2); 
   };
 
   const handleSubmit = async () => {
     setStatus('submitting');
     
-    // Make sure to use her actual Formspree ID here!
+    // Remember to keep your real Formspree ID here!
     const formspreeUrl = "https://formspree.io/f/YOUR_FORMSPREE_ID"; 
     
     try {
@@ -79,7 +77,6 @@ export default function Customise() {
           "Content-Type": "application/json",
           "Accept": "application/json"
         },
-        // We now send the customer info alongside the cart
         body: JSON.stringify({
           customerDetails: customerInfo,
           orderItems: cart,
@@ -105,7 +102,6 @@ export default function Customise() {
     exit: { x: -50, opacity: 0, transition: { duration: 0.2 } },
   };
 
-  // Validation to ensure they don't skip Step 1
   const isCustomerInfoValid = customerInfo.fullName.length > 2 && customerInfo.email.includes('@');
 
   if (status === 'success') {
@@ -121,7 +117,6 @@ export default function Customise() {
   return (
     <div className="max-w-3xl mx-auto p-6">
       
-      {/* Progress Bar (Updated to handle 4 steps before review) */}
       {step < 5 && (
         <div className="mb-8 flex items-center justify-between gap-2">
           {[1, 2, 3, 4].map((i) => (
@@ -202,7 +197,7 @@ export default function Customise() {
           {step === 2 && (
             <motion.div key="s2" variants={slideVariants} initial="hidden" animate="visible" exit="exit" className="flex-grow flex flex-col">
               <h2 className="text-2xl font-bold uppercase mb-2">Select Your Gear</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                 {Object.keys(pricingMap).map((item) => (
                   <button 
                     key={item}
@@ -214,6 +209,12 @@ export default function Customise() {
                   </button>
                 ))}
               </div>
+              
+              {/* --- NEW NOTE SECION --- */}
+              <p className="text-sm text-zinc-500 flex items-center gap-2 mb-6">
+                <Info size={16} className="text-zinc-600 shrink-0" />
+                Note: You can come back here later to add more items to your kit.
+              </p>
               
               {cart.length > 0 && (
                  <div className="text-brand text-sm font-bold mb-4">You currently have {cart.length} item(s) in your cart.</div>
@@ -311,7 +312,6 @@ export default function Customise() {
                 </button>
               </h2>
               
-              {/* Show Customer Info Summary */}
               <div className="bg-zinc-950 rounded-lg p-4 mb-6 border border-zinc-800 text-sm text-zinc-300">
                 <div className="font-bold text-white mb-2 uppercase border-b border-zinc-800 pb-2">Your Details</div>
                 <div><span className="text-zinc-500">Name:</span> {customerInfo.fullName}</div>
