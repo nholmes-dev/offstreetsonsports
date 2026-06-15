@@ -7,9 +7,8 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 w-full p-4 md:p-6 flex justify-between items-center z-50 border-b transition-colors duration-500 ${isHome ? 'bg-transparent border-transparent' : 'bg-zinc-950/60 backdrop-blur-md border-zinc-800/50'}`}>
-      <Link to="/" className="flex items-center gap-3 text-xl md:text-2xl font-black uppercase tracking-tighter">
-        {/* Icon added here */}
-        <BicepFlex className="text-brand size-7" strokeWidth={2.5} />
+<Link to="/" className="flex items-center gap-3 text-xl md:text-2xl font-black uppercase tracking-tighter">
+        <BicepsFlexed className="text-brand size-8" strokeWidth={2.5} />
         OFF STREETS - <span className="text-brand">ON SPORTS</span>
       </Link>
       
