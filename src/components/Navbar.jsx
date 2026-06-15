@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Phone, Mail, Instagram, Facebook, ArmchairIcon as BicepFlex } from 'lucide-react';
+import { Phone, Mail, Instagram, Facebook, BicepsFlexed } from 'lucide-react';
 
 export default function Navbar() {
   const location = useLocation();
