@@ -8,7 +8,7 @@ export default function App() {
     <Router>
       <div className="bg-zinc-950 min-h-screen text-white font-sans selection:bg-brand selection:text-black flex flex-col">
         <Navbar />
-        <main className="flex-grow pt-20">
+        <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/customise" element={<Customise />} />
