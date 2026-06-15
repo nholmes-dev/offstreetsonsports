@@ -115,7 +115,7 @@ export default function Customise() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto p-6">
+    <div className="max-w-3xl mx-auto p-6 pt-28">
       
       {step < 5 && (
         <div className="mb-8 flex items-center justify-between gap-2">
