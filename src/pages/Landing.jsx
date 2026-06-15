@@ -6,7 +6,7 @@ import heroBg from '../hero-bg1.png';
 
 export default function Landing() {
   return (
-    <div className="relative h-[calc(100vh-80px)] flex flex-col items-center justify-center overflow-hidden px-4">
+<div className="relative h-screen flex flex-col items-center justify-center overflow-hidden px-4">
       
       {/* 2. The Background Image (Now layered at z-0) */}
       <div 
