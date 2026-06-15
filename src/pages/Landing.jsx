@@ -33,7 +33,7 @@ export default function Landing() {
         </h1>
         
         <p className="text-zinc-300 text-lg md:text-xl max-w-lg mx-auto mb-10 drop-shadow-md font-medium">
-          Premium, personalized fightwear and team kits built for the streets and the spotlight. No compromises.
+          Premium, personalized fightwear and team kits built for the streets and the spotlight. We are not just any brand, we are a brand with purpose
         </p>
 
         <div className="flex justify-center mt-4">
