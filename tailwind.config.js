@@ -7,7 +7,6 @@ export default {
   theme: {
     extend: {
       colors: {
-        // A punchy neon green to contrast the dark theme
         brand: '#ccff00', 
       }
     },
