@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 // 1. THIS IS THE MAGIC KEY: Import the image directly from your src folder
-import heroBg from '../hero-bg.png'; 
+import heroBg from '../hero-bg1.png'; 
 
 export default function Landing() {
   return (
