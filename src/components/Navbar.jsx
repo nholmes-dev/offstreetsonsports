@@ -6,7 +6,7 @@ export default function Navbar() {
   const isHome = location.pathname === '/';
 
   return (
-<nav className="fixed top-0 w-full p-4 md:p-6 flex justify-between items-center z-50 bg-zinc-950/60 backdrop-blur-md border-b border-zinc-800/50"> 
+<nav className={`fixed top-0 w-full p-4 md:p-6 flex justify-between items-center z-50 transition-all ${isHome ? 'bg-transparent' : 'bg-zinc-950/60 backdrop-blur-md border-b border-zinc-800/50'}`}> 
 <Link to="/" className="text-xl md:text-2xl font-black uppercase tracking-tighter">
   OFF STREETS - <span className="text-brand">ON SPORTS</span>
 </Link>
