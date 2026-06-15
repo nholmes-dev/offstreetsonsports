@@ -14,16 +14,16 @@ export default function Navbar() {
       <div className="flex gap-4 md:gap-8 items-center">
         {/* Contact & Social Icons */}
         <div className="flex gap-3 md:gap-5 text-zinc-300">
-          <a href="tel:+440000000000" title="Call Us" className="hover:text-brand hover:scale-110 transition-all">
+          <a href="tel:+447939233017" title="Call Us" className="hover:text-brand hover:scale-110 transition-all">
             <Phone size={20} />
           </a>
-          <a href="mailto:info@offstreets.com" title="Email Us" className="hover:text-brand hover:scale-110 transition-all">
+          <a href="mailto:offstreetsonsports@gmail.com" title="Email Us" className="hover:text-brand hover:scale-110 transition-all">
             <Mail size={20} />
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer" title="Instagram" className="hover:text-brand hover:scale-110 transition-all">
+          <a href="https://www.instagram.com/offstreetsonsports" target="_blank" rel="noreferrer" title="Instagram" className="hover:text-brand hover:scale-110 transition-all">
             <Instagram size={20} />
           </a>
-          <a href="https://facebook.com" target="_blank" rel="noreferrer" title="Facebook" className="hover:text-brand hover:scale-110 transition-all">
+          <a href="https://www.facebook.com/OffstreetsOnsports" target="_blank" rel="noreferrer" title="Facebook" className="hover:text-brand hover:scale-110 transition-all">
             <Facebook size={20} />
           </a>
         </div>
