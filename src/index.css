@@ -2,30 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 1. Force the browser's native UI (scrollbars, etc.) into Dark Mode */
-:root {
-  color-scheme: dark;
-}
-
-/* 2. Lock down the HTML and Body layers */
 html, body {
-  background-color: #09090b !important;
+  background-color: #09090b;
   color: white;
-  margin: 0;
-  padding: 0;
-  
-  /* Physically prevent horizontal scrollbars from ever appearing */
-  overflow-x: hidden !important; 
-  
-  /* Keep our vertical scrollbar lock to stop the layout jump */
-  overflow-y: scroll;
 }
 
-/* 3. Lock down the React container */
 #root {
-  background-color: #09090b;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
 }
