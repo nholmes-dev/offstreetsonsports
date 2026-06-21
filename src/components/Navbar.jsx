@@ -32,7 +32,7 @@ export default function Navbar() {
             <a href="https://www.instagram.com/offstreetsonsports" target="_blank" rel="noreferrer" className="hover:text-brand transition-all"><Instagram size={20} /></a>
             <a href="https://www.facebook.com/OffstreetsOnsports" target="_blank" rel="noreferrer" className="hover:text-brand transition-all"><Facebook size={20} /></a>
           </div>
-          <Link to="/customise" className="bg-brand text-black px-6 py-2.5 rounded-md font-bold uppercase text-sm hover:bg-lime-400 transition-all shadow-[0_0_15px_rgba(204,255,0,0.2)]">
+          <Link to="/customise" className="bg-brand text-black px-6 py-2.5 rounded-md font-bold uppercase text-sm hover:bg-[#c99338] transition-all shadow-[0_0_15px_rgba(182,131,50,0.2)]">
             Customise Now
           </Link>
         </div>
@@ -53,7 +53,7 @@ export default function Navbar() {
           <Link 
             to="/customise" 
             onClick={() => setIsMenuOpen(false)} 
-            className="bg-brand text-black text-center px-4 py-4 rounded-md font-black uppercase tracking-wide text-lg hover:bg-lime-400 transition-all shadow-[0_0_15px_rgba(204,255,0,0.2)]"
+            className="bg-brand text-black text-center px-4 py-4 rounded-md font-black uppercase tracking-wide text-lg hover:bg-[#c99338] transition-all shadow-[0_0_15px_rgba(182,131,50,0.2)]"
           >
             Customise Now
           </Link>
