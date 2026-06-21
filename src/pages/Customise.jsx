@@ -185,7 +185,7 @@ export default function Customise() {
                 <button 
                   onClick={nextStep} 
                   disabled={!isCustomerInfoValid} 
-                  className="bg-brand text-black px-6 py-3 rounded-lg font-bold flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-lime-400 transition-colors"
+                  className="bg-brand text-black px-6 py-3 rounded-lg font-bold flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#c99338] transition-colors"
                 >
                   Start Building <ChevronRight size={20} />
                 </button>
@@ -210,7 +210,6 @@ export default function Customise() {
                 ))}
               </div>
               
-              {/* --- NEW NOTE SECION --- */}
               <p className="text-sm text-zinc-500 flex items-center gap-2 mb-6">
                 <Info size={16} className="text-zinc-600 shrink-0" />
                 Note: You can come back here later to add more items to your kit.
@@ -224,7 +223,7 @@ export default function Customise() {
                 <button onClick={prevStep} className="text-zinc-400 font-bold flex items-center gap-2 hover:text-white">
                   <ChevronLeft size={20} /> Back
                 </button>
-                <button onClick={nextStep} disabled={!currentItem.garmentType} className="bg-brand text-black px-6 py-3 rounded-lg font-bold flex items-center gap-2 disabled:opacity-50 hover:bg-lime-400">
+                <button onClick={nextStep} disabled={!currentItem.garmentType} className="bg-brand text-black px-6 py-3 rounded-lg font-bold flex items-center gap-2 disabled:opacity-50 hover:bg-[#c99338] transition-colors">
                   Next <ChevronRight size={20} />
                 </button>
               </div>
@@ -247,7 +246,7 @@ export default function Customise() {
               </div>
               <div className="mt-auto flex justify-between">
                 <button onClick={prevStep} className="text-zinc-400 font-bold flex items-center gap-2 hover:text-white"><ChevronLeft size={20} /> Back</button>
-                <button onClick={nextStep} className="bg-brand text-black px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-lime-400">Next <ChevronRight size={20} /></button>
+                <button onClick={nextStep} className="bg-brand text-black px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-[#c99338] transition-colors">Next <ChevronRight size={20} /></button>
               </div>
             </motion.div>
           )}
@@ -271,7 +270,7 @@ export default function Customise() {
               <div className="mb-6">
                 <label className="block text-zinc-400 mb-2 font-bold uppercase text-sm">Precise Specs & Additional Info</label>
                 <textarea 
-                  placeholder="e.g. Please ensure the embroidery thread is neon green to match my logo."
+                  placeholder="e.g. Please ensure the embroidery thread is gold to match my logo."
                   value={currentItem.furtherInfo}
                   onChange={(e) => setCurrentItem({...currentItem, furtherInfo: e.target.value})}
                   className="w-full bg-zinc-950 border border-zinc-700 rounded-lg p-4 focus:border-brand focus:outline-none min-h-[100px] resize-y"
@@ -294,7 +293,7 @@ export default function Customise() {
                   <button onClick={handleAddAnotherItem} className="border-2 border-zinc-700 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 hover:border-white transition-colors">
                     <Plus size={20} /> Add Gear
                   </button>
-                  <button onClick={handleReviewOrder} className="bg-brand text-black px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-lime-400 transition-colors">
+                  <button onClick={handleReviewOrder} className="bg-brand text-black px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-[#c99338] transition-colors">
                     Review Order <ChevronRight size={20} />
                   </button>
                 </div>
