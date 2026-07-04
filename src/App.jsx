@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import Landing from './pages/Landing';
 import Customise from './pages/Customise';
 import About from './pages/About';
@@ -13,6 +14,7 @@ function AppLayout() {
 
   return (
     <div className="bg-zinc-950 min-h-screen text-white font-sans selection:bg-brand selection:text-black flex flex-col overflow-x-hidden">
+      <ScrollToTop />
       <Navbar />
       <main className="flex-grow">
         <Routes>

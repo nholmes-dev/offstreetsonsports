@@ -20,6 +20,7 @@ const emptyItem = {
 export default function Customise() {
   const [step, setStep] = useState(1);
   const [status, setStatus] = useState('idle');
+  const [termsAccepted, setTermsAccepted] = useState(false);
   
   const [customerInfo, setCustomerInfo] = useState({
     fullName: '',
@@ -352,11 +353,26 @@ export default function Customise() {
                   <span className="font-black text-brand text-4xl">£{calculateGrandTotal()}</span>
               </div>
 
-              <div className="mt-auto flex justify-end">
-                <button 
-                  onClick={handleSubmit} 
-                  disabled={status === 'submitting'}
-                  className="bg-white text-black px-10 py-4 rounded-lg font-black hover:bg-zinc-200 uppercase tracking-wide disabled:opacity-50 text-lg w-full sm:w-auto"
+              <div className="mt-auto space-y-4">
+                <label className="flex items-start gap-3 cursor-pointer group">
+                  <input
+                    type="checkbox"
+                    checked={termsAccepted}
+                    onChange={(e) => setTermsAccepted(e.target.checked)}
+                    className="mt-1 shrink-0 accent-brand w-4 h-4 cursor-pointer"
+                  />
+                  <span className="text-sm text-zinc-400 group-hover:text-zinc-300 transition-colors leading-snug">
+                    I have read and agree to the{' '}
+                    <a href="/terms" target="_blank" rel="noreferrer" className="text-brand hover:underline font-bold">Terms & Disclaimer</a>
+                    {' '}and{' '}
+                    <a href="/privacy" target="_blank" rel="noreferrer" className="text-brand hover:underline font-bold">Privacy Policy</a>
+                  </span>
+                </label>
+
+                <button
+                  onClick={handleSubmit}
+                  disabled={status === 'submitting' || !termsAccepted}
+                  className="bg-white text-black px-10 py-4 rounded-lg font-black hover:bg-zinc-200 uppercase tracking-wide disabled:opacity-50 disabled:cursor-not-allowed text-lg w-full sm:w-auto transition-all"
                 >
                   {status === 'submitting' ? 'Sending...' : 'Submit Request'}
                 </button>
