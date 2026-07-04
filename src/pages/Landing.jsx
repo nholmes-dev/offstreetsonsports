@@ -43,23 +43,6 @@ export default function Landing() {
         </div>
       </motion.div>
 
-      {/* Your Developer Footer */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8, duration: 0.6 }}
-        className="absolute bottom-6 z-20 text-xs text-zinc-500 uppercase tracking-widest font-semibold"
-      >
-        Website created by{' '}
-        <a 
-          href="https://nhwebdesign.co.uk" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="text-zinc-400 hover:text-brand transition-colors"
-        >
-          NHWebDesign
-        </a>
-      </motion.div>
 
     </div>
   );
