@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Phone, Mail, Instagram, Facebook, BicepsFlexed, Menu, X } from 'lucide-react';
+import TikTokIcon from './TikTokIcon';
 
 export default function Navbar() {
   const location = useLocation();
@@ -32,6 +33,7 @@ export default function Navbar() {
             <a href="mailto:offstreetsonsports@gmail.com" className="hover:text-brand transition-all"><Mail size={20} /></a>
             <a href="https://www.instagram.com/offstreetsonsports" target="_blank" rel="noreferrer" className="hover:text-brand transition-all"><Instagram size={20} /></a>
             <a href="https://www.facebook.com/OffstreetsOnsports" target="_blank" rel="noreferrer" className="hover:text-brand transition-all"><Facebook size={20} /></a>
+            <a href="https://www.tiktok.com/@offstreets-onsports" target="_blank" rel="noreferrer" className="hover:text-brand transition-all"><TikTokIcon size={20} /></a>
           </div>
           <Link to="/customise" className="bg-brand text-black px-6 py-2.5 rounded-md font-bold uppercase text-sm hover:bg-[#c99338] transition-all shadow-[0_0_15px_rgba(182,131,50,0.2)]">
             Customise Now
@@ -71,6 +73,7 @@ export default function Navbar() {
             <a href="mailto:offstreetsonsports@gmail.com" className="hover:text-brand transition-all"><Mail size={24} /></a>
             <a href="https://www.instagram.com/offstreetsonsports" target="_blank" rel="noreferrer" className="hover:text-brand transition-all"><Instagram size={24} /></a>
             <a href="https://www.facebook.com/OffstreetsOnsports" target="_blank" rel="noreferrer" className="hover:text-brand transition-all"><Facebook size={24} /></a>
+            <a href="https://www.tiktok.com/@offstreets-onsports" target="_blank" rel="noreferrer" className="hover:text-brand transition-all"><TikTokIcon size={24} /></a>
           </div>
         </div>
       )}
