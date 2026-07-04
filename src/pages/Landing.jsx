@@ -43,6 +43,28 @@ export default function Landing() {
         </div>
       </motion.div>
 
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8, duration: 0.6 }}
+        className="absolute bottom-6 z-20 flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-xs text-zinc-500 uppercase tracking-widest font-semibold"
+      >
+        <span>
+          Website by{' '}
+          <a
+            href="https://nhwebdesign.co.uk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-zinc-400 hover:text-brand transition-colors"
+          >
+            NHWebDesign
+          </a>
+        </span>
+        <span className="hidden sm:inline text-zinc-700">·</span>
+        <Link to="/terms" className="hover:text-zinc-300 transition-colors">Terms</Link>
+        <span className="text-zinc-700">·</span>
+        <Link to="/privacy" className="hover:text-zinc-300 transition-colors">Privacy</Link>
+      </motion.div>
 
     </div>
   );
