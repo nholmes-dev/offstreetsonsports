@@ -27,7 +27,7 @@ export default function Navbar() {
         
         {/* 2. Desktop Navigation (Hidden on Mobile) */}
         <div className="hidden lg:flex gap-8 items-center">
-          <Link to="/about" className="text-zinc-300 hover:text-brand transition-colors text-sm font-bold uppercase tracking-wide">About</Link>
+          <Link to="/about" className="border border-brand text-brand px-6 py-2.5 rounded-md font-bold uppercase text-sm hover:bg-brand hover:text-black transition-all">About</Link>
           <div className="flex gap-5 text-zinc-300">
             <a href="tel:+447309728053" className="hover:text-brand transition-all"><Phone size={20} /></a>
             <a href="mailto:offstreetsonsports@gmail.com" className="hover:text-brand transition-all"><Mail size={20} /></a>
