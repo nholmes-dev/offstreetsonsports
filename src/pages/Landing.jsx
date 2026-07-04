@@ -188,9 +188,9 @@ export default function Landing() {
           </a>
         </span>
         <span className="hidden sm:inline text-zinc-700">·</span>
-        <Link to="/terms" className="hover:text-zinc-300 transition-colors">Terms</Link>
+        <Link to="/terms" className="hover:text-brand transition-colors">Terms</Link>
         <span className="text-zinc-700">·</span>
-        <Link to="/privacy" className="hover:text-zinc-300 transition-colors">Privacy</Link>
+        <Link to="/privacy" className="hover:text-brand transition-colors">Privacy</Link>
       </div>
 
     </div>
