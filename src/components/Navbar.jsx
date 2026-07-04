@@ -29,7 +29,7 @@ export default function Navbar() {
         <div className="hidden lg:flex gap-8 items-center">
           <Link to="/about" className="text-zinc-300 hover:text-brand transition-colors text-sm font-bold uppercase tracking-wide">About</Link>
           <div className="flex gap-5 text-zinc-300">
-            <a href="tel:+447939233017" className="hover:text-brand transition-all"><Phone size={20} /></a>
+            <a href="tel:+447309728053" className="hover:text-brand transition-all"><Phone size={20} /></a>
             <a href="mailto:offstreetsonsports@gmail.com" className="hover:text-brand transition-all"><Mail size={20} /></a>
             <a href="https://www.instagram.com/offstreetsonsports" target="_blank" rel="noreferrer" className="hover:text-brand transition-all"><Instagram size={20} /></a>
             <a href="https://www.facebook.com/OffstreetsOnsports" target="_blank" rel="noreferrer" className="hover:text-brand transition-all"><Facebook size={20} /></a>
@@ -69,7 +69,7 @@ export default function Navbar() {
           </Link>
 
           <div className="flex justify-center gap-8 text-zinc-300 pt-4 border-t border-zinc-800/50">
-            <a href="tel:+447939233017" className="hover:text-brand transition-all"><Phone size={24} /></a>
+            <a href="tel:+447309728053" className="hover:text-brand transition-all"><Phone size={24} /></a>
             <a href="mailto:offstreetsonsports@gmail.com" className="hover:text-brand transition-all"><Mail size={24} /></a>
             <a href="https://www.instagram.com/offstreetsonsports" target="_blank" rel="noreferrer" className="hover:text-brand transition-all"><Instagram size={24} /></a>
             <a href="https://www.facebook.com/OffstreetsOnsports" target="_blank" rel="noreferrer" className="hover:text-brand transition-all"><Facebook size={24} /></a>

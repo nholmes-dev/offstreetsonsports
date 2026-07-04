@@ -51,8 +51,8 @@ export default function Footer() {
             <h3 className="text-xs font-black uppercase tracking-widest text-zinc-400 mb-4">Contact</h3>
             <ul className="space-y-2.5 mb-6">
               <li>
-                <a href="tel:+447939233017" className="text-zinc-400 hover:text-brand transition-colors text-sm flex items-center gap-2">
-                  <Phone size={14} className="shrink-0" /> +44 7939 233017
+                <a href="tel:+447309728053" className="text-zinc-400 hover:text-brand transition-colors text-sm flex items-center gap-2">
+                  <Phone size={14} className="shrink-0" /> +44 7309 728053
                 </a>
               </li>
               <li>
