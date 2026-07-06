@@ -13,11 +13,11 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 w-full z-50 border-b transition-colors duration-500 ${isHome && !isMenuOpen ? 'bg-transparent border-transparent' : 'bg-zinc-950/90 backdrop-blur-md border-zinc-800/50'}`}>
-      <div className="p-4 md:p-6 flex justify-between items-center">
+      <div className="px-4 md:px-6 h-24 flex justify-between items-center">
         
         {/* 1. Mobile-Optimized Logo Area */}
         <Link to="/" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 md:gap-3 text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tighter shrink-0">
-          <img src={logo} alt="Off Streets On Sports" className="h-16 md:h-20 w-auto" />
+          <img src={logo} alt="Off Streets On Sports" className="h-20 w-auto" />
         </Link>
         
         {/* 2. Desktop Navigation (Hidden on Mobile) */}
