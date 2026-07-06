@@ -15,18 +15,18 @@ const fadeUp = {
 const values = [
   {
     icon: Shield,
-    title: 'Built for Fighters',
-    body: 'Every piece is designed to perform under pressure while carrying the attitude and identity of the person wearing it. Premium materials, precision craftsmanship — built to last and made to stand out.'
+    title: 'Built to Perform',
+    body: 'From the boxing ring to the rugby pitch, the dance studio to the gym floor — every piece is designed to perform under pressure and carry the identity of the person or team wearing it.'
   },
   {
     icon: Users,
-    title: 'The Real Fight World',
-    body: 'Built on discipline, loyalty, hard work, and respect. OFF Streets–ON Sports wasn\'t handed to me — I built it from the ground up through hard work, sacrifice, and staying true to my values.'
+    title: 'Every Sport, Every Team',
+    body: 'We work with individuals, clubs, gyms, schools, and organisations across a wide range of sports. Whether it\'s a full team kit or a one-off custom piece, no order is too big or too small.'
   },
   {
     icon: Star,
     title: 'Identity & Confidence',
-    body: 'I don\'t just make clothing — I create identity. When you wear your kit, you carry your story, your team, and your purpose with you.'
+    body: 'We don\'t just make clothing — we create identity. When you wear your kit, you carry your story, your team, and your purpose with you.'
   }
 ];
 
@@ -68,7 +68,7 @@ export default function About() {
             custom={3}
             className="text-zinc-300 text-lg md:text-xl max-w-3xl leading-relaxed"
           >
-            I am The Lioness, the designer behind <strong className="text-white">OFF Streets–ON Sports</strong>. I create custom fightwear and sportswear for fighters, athletes, and clubs who expect more than just another kit.
+            I'm Naomi — but everyone calls me The Lioness. I'm the founder of <strong className="text-white">OFF Streets–ON Sports</strong>, and I create premium custom sportswear for fighters, athletes, teams, and clubs who expect more than just another kit.
           </motion.p>
         </div>
       </div>
@@ -81,17 +81,17 @@ export default function About() {
 
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0}>
             <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight mb-6">
-              The Real <br />
-              <span className="text-brand">Fight World</span>
+              From the Ring <br />
+              <span className="text-brand">To Every Sport</span>
             </h2>
             <p className="text-zinc-300 leading-relaxed mb-6">
-              I've been part of the fight world for many years. The <em>real</em> fight world — the one built on discipline, loyalty, hard work, and respect. Not the social media version.
+              Off Streets on Sports was founded with one clear passion — combat sports. What started as a business specialising in custom boxing and fight wear has grown into something much bigger.
             </p>
             <p className="text-zinc-300 leading-relaxed mb-6">
-              I take the time to understand every athlete — their story, their club, their colours, and what drives them. From concept to finished product, every detail matters.
+              With roots firmly planted in boxing, we built our reputation by creating high-quality, fully customised apparel for fighters who wanted to stand out. As our customers grew, so did we. Today, Off Streets on Sports proudly designs and manufactures custom clothing for athletes and teams across a wide range of sports.
             </p>
             <p className="text-zinc-300 leading-relaxed">
-              Having worked in a sport that was once dominated by men, it has been inspiring to watch so many women step forward, break barriers, and lead the way in combat sports. That drive is woven into every piece I create.
+              From custom gym wear and dancewear to rugby kits, football kits, fight wear, and much more — we work with individuals, clubs, gyms, schools, and organisations to create apparel that's made to perform and designed to represent their identity.
             </p>
           </motion.div>
 
@@ -122,7 +122,7 @@ export default function About() {
             What I <span className="text-brand">Stand For</span>
           </h2>
           <p className="text-zinc-400 max-w-2xl mx-auto">
-            OFF Streets–ON Sports wasn't handed to me. I built it from the ground up — and I've never chased trends, never forgotten where I came from.
+            Our journey has always been driven by a passion for sport, quality craftsmanship, and helping athletes look and feel their best. No matter the sport, the goal remains the same — premium custom clothing that combines performance, style, and durability.
           </p>
         </motion.div>
 
@@ -202,7 +202,7 @@ export default function About() {
             Ready to Build <span className="text-brand">Your Kit?</span>
           </h2>
           <p className="text-zinc-400 mb-8 max-w-lg mx-auto">
-            Join the fighters and teams who trust Off Streets On Sports to deliver quality, performance, and identity in every stitch.
+            From the boxing ring to sports fields, dance studios, and gyms across the country — join the athletes, teams, and clubs who trust Off Streets On Sports to deliver quality, performance, and identity in every stitch.
           </p>
           <Link
             to="/customise"

@@ -6,6 +6,17 @@ import { ChevronRight, ChevronLeft, CheckCircle, Calculator, Plus, Trash2, User,
 
 const categories = [
   {
+    label: 'Team & Club Orders',
+    note: 'Minimum order of 10 pieces — pricing confirmed on enquiry.',
+    items: [
+      { name: 'Muay Thai Shorts', enquiryOnly: true },
+      { name: 'Jiu-Jitsu Gis', enquiryOnly: true },
+      { name: 'MMA Gear', enquiryOnly: true },
+      { name: 'Football Kits', enquiryOnly: true },
+      { name: 'Rugby Kits', enquiryOnly: true },
+    ],
+  },
+  {
     label: 'Fighter Bundles',
     note: 'Includes Ring Jacket, Fight Shorts, and T-Shirt or Vest',
     items: [
@@ -37,17 +48,6 @@ const categories = [
     items: [
       { name: 'Walkout Flag', fromPrice: 20 },
       { name: 'Walkout Banner', fromPrice: 20 },
-    ],
-  },
-  {
-    label: 'Team & Club Orders',
-    note: 'Minimum order of 10 pieces — pricing confirmed on enquiry.',
-    items: [
-      { name: 'Muay Thai Shorts', enquiryOnly: true },
-      { name: 'Jiu-Jitsu Gis', enquiryOnly: true },
-      { name: 'MMA Gear', enquiryOnly: true },
-      { name: 'Football Kits', enquiryOnly: true },
-      { name: 'Rugby Kits', enquiryOnly: true },
     ],
   },
 ];
