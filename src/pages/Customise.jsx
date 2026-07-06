@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, ChevronLeft, CheckCircle, Calculator, Plus, Trash2, User, Info, Mail, Sparkles } from 'lucide-react';
 
@@ -113,6 +113,15 @@ export default function Customise() {
 
   const nextStep = () => setStep((prev) => prev + 1);
   const prevStep = () => setStep((prev) => prev - 1);
+
+  // Intercept browser back button on steps 2–4 so it steps back within the form
+  useEffect(() => {
+    if (step <= 1 || step >= 5) return;
+    window.history.pushState(null, '');
+    const handlePopState = () => setStep((prev) => prev - 1);
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [step]);
 
   const grandEstimate = cart.reduce((sum, item) => sum + (calculateItemEstimate(item) ?? 0), 0);
   const hasEnquiryItems = cart.some((item) => getProductInfo(item.garmentType)?.enquiryOnly);
