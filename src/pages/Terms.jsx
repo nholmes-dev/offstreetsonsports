@@ -53,7 +53,7 @@ export default function Terms() {
           className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-10"
           style={{ backgroundImage: `url(${logo})` }}
         />
-        <div className="absolute inset-0 bg-zinc-900/60" />
+        <div className="absolute inset-0 bg-zinc-900/85" />
         <div className="max-w-4xl mx-auto px-6 py-16 md:py-24 relative z-10">
           <motion.span
             initial={{ opacity: 0 }}
