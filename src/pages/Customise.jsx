@@ -427,9 +427,14 @@ export default function Customise() {
                         const saving       = bundle ? standardCost - bundle.price : 0;
                         const nextBundle   = TSHIRT_BUNDLES.slice().reverse().find((b) => b.minQty > qty);
                         if (bundle) return (
-                          <div className="mt-3 bg-brand/10 border border-brand/30 rounded-lg p-3">
-                            <p className="text-brand font-bold text-sm">Bundle deal applied — £{bundle.price} total</p>
-                            {saving > 0 && <p className="text-zinc-400 text-xs mt-0.5">You're saving £{saving} vs. buying individually</p>}
+                          <div className="mt-3 space-y-2">
+                            <div className="bg-brand/10 border border-brand/30 rounded-lg p-3">
+                              <p className="text-brand font-bold text-sm">Bundle deal applied — £{bundle.price} total</p>
+                              {saving > 0 && <p className="text-zinc-400 text-xs mt-0.5">You're saving £{saving} vs. buying individually</p>}
+                            </div>
+                            {nextBundle && (
+                              <p className="text-zinc-600 text-xs">💡 Order {nextBundle.minQty - qty} more and pay just £{nextBundle.price} total (save £{p.fromPrice * nextBundle.minQty - nextBundle.price})</p>
+                            )}
                           </div>
                         );
                         if (nextBundle) return (
