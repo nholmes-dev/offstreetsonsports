@@ -174,24 +174,6 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Bottom bar */}
-      <div className="bg-zinc-950 border-t border-zinc-800/40 py-5 flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4 text-xs text-zinc-500 uppercase tracking-widest font-semibold px-6">
-        <span>
-          Website by{' '}
-          <a
-            href="https://nhwebdesign.co.uk"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-zinc-400 hover:text-brand transition-colors"
-          >
-            NHWebDesign
-          </a>
-        </span>
-        <span className="hidden sm:inline text-zinc-700">·</span>
-        <Link to="/terms" className="hover:text-brand transition-colors">Terms</Link>
-        <span className="text-zinc-700">·</span>
-        <Link to="/privacy" className="hover:text-brand transition-colors">Privacy</Link>
-      </div>
 
     </div>
   );
