@@ -401,15 +401,20 @@ export default function Customise() {
                       min={isEnquiry ? 10 : 1}
                       value={currentItem.quantity}
                       onChange={(e) => {
-                        const val = parseInt(e.target.value) || 1;
-                        setCurrentItem({ ...currentItem, quantity: isEnquiry ? Math.max(10, val) : val });
+                        const val = parseInt(e.target.value) || 0;
+                        setCurrentItem({ ...currentItem, quantity: val });
                       }}
-                      className="w-full bg-zinc-950 border border-zinc-700 rounded-lg p-4 text-xl focus:border-brand focus:outline-none"
+                      className={`w-full bg-zinc-950 border rounded-lg p-4 text-xl focus:outline-none ${isEnquiry && qty < 10 ? 'border-red-500 focus:border-red-500' : 'border-zinc-700 focus:border-brand'}`}
                     />
                     {isBundle && (
                       <p className="text-zinc-500 text-sm mt-2">Each bundle includes a Ring Jacket, Fight Shorts, and your choice of T-Shirt or Vest.</p>
                     )}
-                    {isEnquiry && (
+                    {isEnquiry && qty < 10 && (
+                      <p className="text-red-400 text-sm mt-2 flex items-center gap-1.5">
+                        <Info size={14} className="shrink-0" /> Minimum order is 10 pieces — please increase your quantity.
+                      </p>
+                    )}
+                    {isEnquiry && qty >= 10 && (
                       <p className="text-zinc-500 text-sm mt-2 flex items-center gap-1.5">
                         <Info size={14} className="text-zinc-600 shrink-0" /> Minimum order of 10 pieces for team &amp; club products
                       </p>
@@ -442,7 +447,13 @@ export default function Customise() {
               })()}
               <div className="mt-auto flex justify-between">
                 <button onClick={prevStep} className="text-zinc-400 font-bold flex items-center gap-2 hover:text-white"><ChevronLeft size={20} /> Back</button>
-                <button onClick={nextStep} className="bg-brand text-black px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-[#c99338] transition-colors">Next <ChevronRight size={20} /></button>
+                <button
+                  onClick={nextStep}
+                  disabled={!!(getProductInfo(currentItem.garmentType)?.enquiryOnly && (parseInt(currentItem.quantity) || 0) < 10)}
+                  className="bg-brand text-black px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-[#c99338] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Next <ChevronRight size={20} />
+                </button>
               </div>
             </motion.div>
           )}
