@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Mail, CreditCard, Paintbrush, ChevronDown, ChevronRight } from 'lucide-react';
+import { Mail, CreditCard, Paintbrush, Package, ChevronDown, ChevronRight } from 'lucide-react';
 import heroBg from '../hero-bg1.png';
 
 const steps = [
@@ -24,6 +24,13 @@ const steps = [
     icon: Paintbrush,
     title: 'Approve Your Mock-Up',
     description: 'I\'ll create your design and send over a full mock-up for your approval before anything goes into production. Nothing is printed until you\'re happy.',
+    highlight: null,
+  },
+  {
+    number: '04',
+    icon: Package,
+    title: 'Wear It & Win',
+    description: 'Once you\'re happy with the design, your kit goes into production and gets delivered to your door. All that\'s left is to step into the ring and own it.',
     highlight: null,
   },
 ];
@@ -109,7 +116,7 @@ export default function Landing() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16">
             {steps.map((step, i) => (
               <motion.div
                 key={step.number}

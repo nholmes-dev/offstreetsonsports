@@ -56,10 +56,8 @@ export default function About() {
             className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6"
           >
             I Am<br />
-            <span className="text-brand">"The Lioness"</span>
+            <span className="text-brand">The Lioness</span>
           </motion.h1>
-
-          <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={2} className="w-16 h-1 bg-brand mb-8" />
 
           <motion.p
             variants={fadeUp}
