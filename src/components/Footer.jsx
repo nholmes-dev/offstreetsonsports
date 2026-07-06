@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import { BicepsFlexed, Phone, Mail, Instagram, Facebook } from 'lucide-react';
+import { Phone, Mail, Instagram, Facebook } from 'lucide-react';
 import TikTokIcon from './TikTokIcon';
+import logo from '../logo.png';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -13,12 +14,8 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <Link to="/" className="flex items-center gap-3 mb-4 group w-fit">
-              <BicepsFlexed className="text-brand size-7 shrink-0" strokeWidth={2.5} />
-              <span className="text-lg font-black uppercase tracking-tighter leading-none">
-                Off Streets<br />
-                <span className="text-brand">On Sports</span>
-              </span>
+            <Link to="/" className="inline-block mb-4">
+              <img src={logo} alt="Off Streets On Sports" className="h-12 w-auto" />
             </Link>
             <p className="text-zinc-500 text-sm leading-relaxed max-w-xs">
               Premium custom fightwear and sportswear built for athletes, fighters, and teams who live and breathe sport.
