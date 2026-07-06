@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Mail, CreditCard, Paintbrush, Package, ChevronDown, ChevronRight } from 'lucide-react';
 import heroBg from '../hero-bg1.png';
+import logo from '../logo.png';
 
 const steps = [
   {
@@ -98,8 +99,12 @@ export default function Landing() {
       </div>
 
       {/* ── How It Works ── */}
-      <section className="bg-zinc-950 border-t border-zinc-800/60 px-6 py-20 md:py-28">
-        <div className="max-w-5xl mx-auto">
+      <section className="relative bg-zinc-950 border-t border-zinc-800/60 px-6 py-20 md:py-28 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-[0.04] pointer-events-none select-none"
+          style={{ backgroundImage: `url(${logo})` }}
+        />
+        <div className="max-w-5xl mx-auto relative z-10">
 
           <motion.div
             variants={fadeUp}
