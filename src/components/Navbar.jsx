@@ -17,7 +17,7 @@ export default function Navbar() {
         
         {/* 1. Mobile-Optimized Logo Area */}
         <Link to="/" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 md:gap-3 text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tighter shrink-0">
-          <img src={logo} alt="Off Streets On Sports" className="h-14 md:h-16 w-auto" />
+          <img src={logo} alt="Off Streets On Sports" className="h-16 md:h-20 w-auto" />
         </Link>
         
         {/* 2. Desktop Navigation (Hidden on Mobile) */}

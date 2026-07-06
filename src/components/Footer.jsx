@@ -15,7 +15,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link to="/" className="inline-block mb-4">
-              <img src={logo} alt="Off Streets On Sports" className="h-16 w-auto" />
+              <img src={logo} alt="Off Streets On Sports" className="h-20 w-auto" />
             </Link>
             <p className="text-zinc-500 text-sm leading-relaxed max-w-xs">
               Premium custom fightwear and sportswear built for athletes, fighters, and teams who live and breathe sport.
