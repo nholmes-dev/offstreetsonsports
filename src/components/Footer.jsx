@@ -66,7 +66,7 @@ export default function Footer() {
               <a href="https://www.facebook.com/OffstreetsOnsports" target="_blank" rel="noreferrer" className="text-zinc-500 hover:text-brand transition-colors">
                 <Facebook size={20} />
               </a>
-              <a href="https://www.tiktok.com/@offstreets-onsports" target="_blank" rel="noreferrer" className="text-zinc-500 hover:text-brand transition-colors">
+              <a href="https://www.tiktok.com/@offstreets_onsports" target="_blank" rel="noreferrer" className="text-zinc-500 hover:text-brand transition-colors">
                 <TikTokIcon size={20} />
               </a>
             </div>

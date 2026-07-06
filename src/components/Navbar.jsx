@@ -27,7 +27,7 @@ export default function Navbar() {
             <a href="mailto:offstreetsonsports@gmail.com" className="hover:text-brand transition-all"><Mail size={20} /></a>
             <a href="https://www.instagram.com/offstreetsonsports" target="_blank" rel="noreferrer" className="hover:text-brand transition-all"><Instagram size={20} /></a>
             <a href="https://www.facebook.com/OffstreetsOnsports" target="_blank" rel="noreferrer" className="hover:text-brand transition-all"><Facebook size={20} /></a>
-            <a href="https://www.tiktok.com/@offstreets-onsports" target="_blank" rel="noreferrer" className="hover:text-brand transition-all"><TikTokIcon size={20} /></a>
+            <a href="https://www.tiktok.com/@offstreets_onsports" target="_blank" rel="noreferrer" className="hover:text-brand transition-all"><TikTokIcon size={20} /></a>
           </div>
           <Link to="/about" className="border border-brand text-brand px-6 py-2.5 rounded-md font-bold uppercase text-sm hover:bg-brand hover:text-black transition-all">About</Link>
           <Link to="/customise" className="bg-brand text-black px-6 py-2.5 rounded-md font-bold uppercase text-sm hover:bg-[#c99338] transition-all shadow-[0_0_15px_rgba(182,131,50,0.2)]">
@@ -68,7 +68,7 @@ export default function Navbar() {
             <a href="mailto:offstreetsonsports@gmail.com" className="hover:text-brand transition-all"><Mail size={24} /></a>
             <a href="https://www.instagram.com/offstreetsonsports" target="_blank" rel="noreferrer" className="hover:text-brand transition-all"><Instagram size={24} /></a>
             <a href="https://www.facebook.com/OffstreetsOnsports" target="_blank" rel="noreferrer" className="hover:text-brand transition-all"><Facebook size={24} /></a>
-            <a href="https://www.tiktok.com/@offstreets-onsports" target="_blank" rel="noreferrer" className="hover:text-brand transition-all"><TikTokIcon size={24} /></a>
+            <a href="https://www.tiktok.com/@offstreets_onsports" target="_blank" rel="noreferrer" className="hover:text-brand transition-all"><TikTokIcon size={24} /></a>
           </div>
         </div>
       )}
