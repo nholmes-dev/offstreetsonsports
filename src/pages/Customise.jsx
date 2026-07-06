@@ -114,7 +114,7 @@ function LogoNote() {
         <a href="mailto:offstreetsonsports@gmail.com" className="text-brand font-bold hover:underline">
           offstreetsonsports@gmail.com
         </a>{' '}
-        and we'll handle the rest.
+        and I'll handle the rest.
       </p>
     </div>
   );
@@ -242,7 +242,7 @@ export default function Customise() {
       <div className="max-w-2xl mx-auto mt-12 p-6 text-center">
         <CheckCircle className="text-brand w-24 h-24 mx-auto mb-6" />
         <h2 className="text-4xl font-black uppercase mb-4">Request Sent!</h2>
-        <p className="text-zinc-400 mb-2">Thanks, {customerInfo.fullName.split(' ')[0]}! We'll review your specs and be in touch shortly.</p>
+        <p className="text-zinc-400 mb-2">Thanks, {customerInfo.fullName.split(' ')[0]}! I'll review your specs and be in touch shortly.</p>
         <p className="text-zinc-500 text-sm">
           Don't forget to email any logos or artwork to{' '}
           <a href="mailto:offstreetsonsports@gmail.com" className="text-brand font-bold hover:underline">offstreetsonsports@gmail.com</a>
@@ -284,7 +284,7 @@ export default function Customise() {
           {step === 1 && (
             <motion.div key="s1" variants={slideVariants} initial="hidden" animate="visible" exit="exit" className="flex flex-col">
               <h2 className="text-2xl font-bold uppercase mb-2 flex items-center gap-3"><User className="text-brand" /> Your Details</h2>
-              <p className="text-zinc-400 mb-6">Let's get your contact info before we build your kit.</p>
+              <p className="text-zinc-400 mb-6">Let's get your contact info before I build your kit.</p>
               <div className="space-y-4 mb-8">
                 <div>
                   <label className="block text-zinc-400 mb-1 font-bold uppercase text-xs">Full Name *</label>
@@ -319,7 +319,7 @@ export default function Customise() {
               <h2 className="text-2xl font-bold uppercase mb-2">Select Your Gear</h2>
               <p className="text-zinc-500 text-sm flex items-center gap-2 mb-6">
                 <Info size={15} className="shrink-0 text-zinc-600" />
-                Prices shown are estimates — final cost confirmed once we review your order.
+                Prices shown are estimates — final cost confirmed once I review your order.
               </p>
               <div className="space-y-6 mb-6">
                 {categories.map((cat) => (
@@ -633,7 +633,7 @@ export default function Customise() {
                 </div>
               </div>
               <p className="text-xs text-zinc-600 mb-6 text-right">
-                {hasEnquiryItems ? 'Some items are priced on enquiry and are not included above.' : "Final pricing confirmed once we've reviewed your order."}
+                {hasEnquiryItems ? 'Some items are priced on enquiry and are not included above.' : "Final pricing confirmed once I've reviewed your order."}
               </p>
 
               <div className="space-y-4">

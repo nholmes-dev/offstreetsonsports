@@ -21,12 +21,12 @@ const values = [
   {
     icon: Users,
     title: 'The Real Fight World',
-    body: 'Built on discipline, loyalty, hard work, and respect. OFF Streets–ON Sports wasn\'t handed to us — we built it from the ground up through hard work, sacrifice, and staying true to our values.'
+    body: 'Built on discipline, loyalty, hard work, and respect. OFF Streets–ON Sports wasn\'t handed to me — I built it from the ground up through hard work, sacrifice, and staying true to my values.'
   },
   {
     icon: Star,
     title: 'Identity & Confidence',
-    body: 'We don\'t just make clothing — we create identity. When you wear your kit, you carry your story, your team, and your purpose with you.'
+    body: 'I don\'t just make clothing — I create identity. When you wear your kit, you carry your story, your team, and your purpose with you.'
   }
 ];
 
@@ -44,7 +44,7 @@ export default function About() {
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28 relative z-10">
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0}>
             <span className="inline-block text-brand font-black uppercase tracking-widest text-sm mb-4 border border-brand/40 px-3 py-1 rounded-full">
-              Our Story
+              My Story
             </span>
           </motion.div>
 
@@ -91,7 +91,7 @@ export default function About() {
               I take the time to understand every athlete — their story, their club, their colours, and what drives them. From concept to finished product, every detail matters.
             </p>
             <p className="text-zinc-300 leading-relaxed">
-              Having worked in a sport that was once dominated by men, it has been inspiring to watch so many women step forward, break barriers, and lead the way in combat sports. That drive is woven into every piece we create.
+              Having worked in a sport that was once dominated by men, it has been inspiring to watch so many women step forward, break barriers, and lead the way in combat sports. That drive is woven into every piece I create.
             </p>
           </motion.div>
 
@@ -119,10 +119,10 @@ export default function About() {
         {/* Brand Mission */}
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight mb-4">
-            What We <span className="text-brand">Stand For</span>
+            What I <span className="text-brand">Stand For</span>
           </h2>
           <p className="text-zinc-400 max-w-2xl mx-auto">
-            OFF Streets–ON Sports wasn't handed to us. We built it from the ground up — and we've never chased trends, never forgotten where we came from.
+            OFF Streets–ON Sports wasn't handed to me. I built it from the ground up — and I've never chased trends, never forgotten where I came from.
           </p>
         </motion.div>
 

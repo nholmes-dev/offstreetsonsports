@@ -14,12 +14,12 @@ const sections = [
   {
     number: '01',
     title: 'Design Deposit',
-    content: `A £50 non-refundable deposit is required for all designs. This deposit secures your place in our production schedule and allows us to begin the design process. The deposit will be deducted from your final balance.`
+    content: `A £50 non-refundable deposit is required for all designs. This deposit secures your place in my production schedule and allows me to begin the design process. The deposit will be deducted from your final balance.`
   },
   {
     number: '02',
     title: 'Payment Terms',
-    content: `All custom individual kits must be paid in full before production begins. This also applies to any additional add-on orders, which must be paid immediately once agreed.\n\nPayment must be made within the timeframe specified by us. If no timeframe is provided, full payment must be received no later than 4 weeks before the date the kit is required.\n\nLate payment may result in production being postponed and potential delivery delays. Off Streets on Sports cannot be held responsible for any delays caused by late payment.`
+    content: `All custom individual kits must be paid in full before production begins. This also applies to any additional add-on orders, which must be paid immediately once agreed.\n\nPayment must be made within the timeframe specified by me. If no timeframe is provided, full payment must be received no later than 4 weeks before the date the kit is required.\n\nLate payment may result in production being postponed and potential delivery delays. Off Streets on Sports cannot be held responsible for any delays caused by late payment.`
   },
   {
     number: '03',
@@ -29,12 +29,12 @@ const sections = [
   {
     number: '04',
     title: 'Design Approval & Refund Policy',
-    content: `We do not offer refunds on custom kits once designs have been approved.\n\nCustomers will receive design mocks and/or test prints before production begins. It is the customer's responsibility to carefully review and approve all designs.\n\nOnce approval has been given and the kits have been printed, the order is considered final.`
+    content: `I do not offer refunds on custom kits once designs have been approved.\n\nCustomers will receive design mocks and/or test prints before production begins. It is the customer's responsibility to carefully review and approve all designs.\n\nOnce approval has been given and the kits have been printed, the order is considered final.`
   },
   {
     number: '05',
     title: 'Quality Guarantee',
-    content: `While custom orders cannot be refunded after approval, we are committed to maintaining high-quality standards.\n\nIf any product does not meet our quality standards, we will offer a replacement or refund where appropriate.`
+    content: `While custom orders cannot be refunded after approval, I am committed to maintaining high-quality standards.\n\nIf any product does not meet my quality standards, I will offer a replacement or refund where appropriate.`
   },
   {
     number: '06',

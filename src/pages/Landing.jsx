@@ -8,7 +8,7 @@ const steps = [
     number: '01',
     icon: Mail,
     title: 'Build & Submit Your Kit',
-    description: 'Use our kit builder to select your garments, quantities, and customisations. Submit your enquiry and email any logos or artwork to',
+    description: 'Use my kit builder to select your garments, quantities, and customisations. Submit your enquiry and email any logos or artwork to',
     highlight: 'offstreetsonsports@gmail.com',
     highlightHref: 'mailto:offstreetsonsports@gmail.com',
   },
@@ -16,14 +16,14 @@ const steps = [
     number: '02',
     icon: CreditCard,
     title: 'Pay Your Deposit',
-    description: 'Once we\'ve reviewed your order, a £50 non-refundable design deposit is required to secure your place in our production schedule and get the process started.',
+    description: 'Once I\'ve reviewed your order, a £50 non-refundable design deposit is required to secure your place in my production schedule and get the process started.',
     highlight: null,
   },
   {
     number: '03',
     icon: Paintbrush,
     title: 'Approve Your Mock-Up',
-    description: 'We\'ll create your design and send over a full mock-up for your approval before anything goes into production. Nothing is printed until you\'re happy.',
+    description: 'I\'ll create your design and send over a full mock-up for your approval before anything goes into production. Nothing is printed until you\'re happy.',
     highlight: null,
   },
 ];
@@ -62,7 +62,7 @@ export default function Landing() {
           </h1>
 
           <p className="text-zinc-300 text-lg md:text-xl max-w-lg mx-auto mb-10 drop-shadow-md font-medium">
-            Premium, personalised fightwear and team kits built for the streets and the spotlight. We are not just any brand, we are a brand with purpose
+            Premium, personalised fightwear and team kits built for the streets and the spotlight. I am not just a brand, I am a brand with purpose
           </p>
 
           <div className="flex justify-center mt-4">

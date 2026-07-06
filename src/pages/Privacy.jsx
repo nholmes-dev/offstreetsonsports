@@ -13,38 +13,38 @@ const fadeUp = {
 const sections = [
   {
     number: '01',
-    title: 'Who We Are',
-    content: `Off Streets On Sports is a custom fightwear and sportswear brand based in the United Kingdom.\n\nIf you have any questions about how we handle your data, contact us at: offstreetsonsports@gmail.com`
+    title: 'Who I Am',
+    content: `Off Streets On Sports is a custom fightwear and sportswear brand based in the United Kingdom.\n\nIf you have any questions about how I handle your data, contact me at: offstreetsonsports@gmail.com`
   },
   {
     number: '02',
-    title: 'What Data We Collect',
-    content: `When you submit a kit enquiry through our website, we collect the following personal information:\n\n• Full name\n• Email address\n• Phone number (optional)\n• Gym or team name (optional)\n• Order details and specifications you provide\n\nWe do not collect payment card information. All payments are handled separately and directly.`
+    title: 'What Data I Collect',
+    content: `When you submit a kit enquiry through my website, I collect the following personal information:\n\n• Full name\n• Email address\n• Phone number (optional)\n• Gym or team name (optional)\n• Order details and specifications you provide\n\nI do not collect payment card information. All payments are handled separately and directly.`
   },
   {
     number: '03',
-    title: 'How We Use Your Data',
-    content: `We use the information you provide solely to:\n\n• Respond to and process your kit enquiry\n• Communicate with you about your order\n• Send design mock-ups and approve your order before production\n\nWe will never sell, rent, or share your personal data with third parties for marketing purposes.`
+    title: 'How I Use Your Data',
+    content: `I use the information you provide solely to:\n\n• Respond to and process your kit enquiry\n• Communicate with you about your order\n• Send design mock-ups and approve your order before production\n\nI will never sell, rent, or share your personal data with third parties for marketing purposes.`
   },
   {
     number: '04',
     title: 'How Your Data Is Stored',
-    content: `Enquiry forms on this website are processed via Formspree, a third-party form service. Your submission is transmitted securely to our email. Formspree's privacy policy governs how form data is processed in transit.\n\nWe retain your order details for a reasonable period to fulfil your order and handle any follow-up queries. You may request deletion of your data at any time.`
+    content: `Enquiry forms on this website are processed via Formspree, a third-party form service. Your submission is transmitted securely to my email. Formspree's privacy policy governs how form data is processed in transit.\n\nI retain your order details for a reasonable period to fulfil your order and handle any follow-up queries. You may request deletion of your data at any time.`
   },
   {
     number: '05',
     title: 'Cookies',
-    content: `This website does not use tracking, advertising, or analytics cookies. We do not run any third-party advertising or retargeting scripts.\n\nIf this changes in future, this policy will be updated accordingly.`
+    content: `This website does not use tracking, advertising, or analytics cookies. I do not run any third-party advertising or retargeting scripts.\n\nIf this changes in future, this policy will be updated accordingly.`
   },
   {
     number: '06',
     title: 'Your Rights (GDPR)',
-    content: `Under the UK General Data Protection Regulation (UK GDPR), you have the right to:\n\n• Access the personal data we hold about you\n• Request correction of inaccurate data\n• Request deletion of your data\n• Object to processing of your data\n• Lodge a complaint with the Information Commissioner's Office (ICO)\n\nTo exercise any of these rights, please contact us at offstreetsonsports@gmail.com.`
+    content: `Under the UK General Data Protection Regulation (UK GDPR), you have the right to:\n\n• Access the personal data I hold about you\n• Request correction of inaccurate data\n• Request deletion of your data\n• Object to processing of your data\n• Lodge a complaint with the Information Commissioner's Office (ICO)\n\nTo exercise any of these rights, please contact me at offstreetsonsports@gmail.com.`
   },
   {
     number: '07',
     title: 'Changes to This Policy',
-    content: `We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date. Continued use of this website after changes constitutes acceptance of the updated policy.\n\nLast updated: July 2025`
+    content: `I may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date. Continued use of this website after changes constitutes acceptance of the updated policy.\n\nLast updated: July 2025`
   }
 ];
 
@@ -88,7 +88,7 @@ export default function Privacy() {
             transition={{ delay: 0.4 }}
             className="text-zinc-400 max-w-xl"
           >
-            We respect your privacy and are committed to protecting your personal data. This policy explains how Off Streets On Sports handles the information you provide to us.
+            I respect your privacy and am committed to protecting your personal data. This policy explains how I handle the information you provide.
           </motion.p>
         </div>
       </div>
