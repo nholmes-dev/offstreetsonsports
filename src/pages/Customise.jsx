@@ -33,13 +33,6 @@ const categories = [
     ],
   },
   {
-    label: 'T-Shirt Bundles',
-    items: [
-      { name: '10 T-Shirts', fixedPrice: 200 },
-      { name: '20 T-Shirts', fixedPrice: 350 },
-    ],
-  },
-  {
     label: 'Flags & Walkout Banners',
     items: [
       { name: 'Fighter Walkout Flag/Banner', fromPrice: 20 },
@@ -73,10 +66,22 @@ const priceLabel = (product) => {
   return `From £${product.fromPrice}`;
 };
 
+const TSHIRT_BUNDLES = [
+  { minQty: 20, price: 350, label: '20 T-Shirts' },
+  { minQty: 10, price: 200, label: '10 T-Shirts' },
+];
+
+const getTShirtBundle = (qty) =>
+  TSHIRT_BUNDLES.find((b) => qty >= b.minQty) ?? null;
+
 const calculateItemEstimate = (item) => {
   const product = getProductInfo(item.garmentType);
   if (!product || product.enquiryOnly) return null;
   const qty = parseInt(item.quantity) || 1;
+  if (item.garmentType === 'T-Shirt') {
+    const bundle = getTShirtBundle(qty);
+    return bundle ? bundle.price : product.fromPrice * qty;
+  }
   return (product.fixedPrice ?? product.fromPrice) * qty;
 };
 
@@ -299,6 +304,9 @@ export default function Customise() {
                           <div className={`text-xs font-normal mt-1 ${product.enquiryOnly ? 'text-zinc-500 italic' : 'text-zinc-400'}`}>
                             {priceLabel(product)}
                           </div>
+                          {product.name === 'T-Shirt' && (
+                            <div className="text-xs text-brand/70 mt-1 font-normal">Bundle deals: 10 for £200 · 20 for £350</div>
+                          )}
                         </button>
                       ))}
                     </div>
@@ -346,6 +354,32 @@ export default function Customise() {
                   const p = getProductInfo(currentItem.garmentType);
                   if (!p || p.enquiryOnly) return null;
                   const qty = parseInt(currentItem.quantity) || 1;
+
+                  if (currentItem.garmentType === 'T-Shirt') {
+                    const bundle = getTShirtBundle(qty);
+                    const standardCost = p.fromPrice * qty;
+                    const saving = bundle ? standardCost - bundle.price : 0;
+                    // hint about next bundle tier
+                    const nextBundle = TSHIRT_BUNDLES.slice().reverse().find((b) => b.minQty > qty);
+
+                    if (bundle) return (
+                      <div className="mt-3 bg-brand/10 border border-brand/30 rounded-lg p-3">
+                        <p className="text-brand font-bold text-sm">Bundle deal applied — £{bundle.price} total</p>
+                        {saving > 0 && <p className="text-zinc-400 text-xs mt-0.5">You're saving £{saving} vs. buying individually</p>}
+                      </div>
+                    );
+                    if (nextBundle) return (
+                      <div className="mt-3 space-y-1">
+                        <p className="text-zinc-500 text-sm">Estimated cost: <span className="text-white font-bold">from £{standardCost}</span></p>
+                        <p className="text-zinc-600 text-xs">
+                          💡 Order {nextBundle.minQty - qty} more and pay just £{nextBundle.price} total
+                          {' '}(save £{p.fromPrice * nextBundle.minQty - nextBundle.price})
+                        </p>
+                      </div>
+                    );
+                    return <p className="text-zinc-500 text-sm mt-3">Estimated cost: <span className="text-white font-bold">from £{standardCost}</span></p>;
+                  }
+
                   const est = (p.fixedPrice ?? p.fromPrice) * qty;
                   return (
                     <p className="text-zinc-500 text-sm mt-3">
