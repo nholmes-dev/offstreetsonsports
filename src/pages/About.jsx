@@ -107,7 +107,7 @@ export default function About() {
             <blockquote className="relative z-10">
               <div className="text-brand text-5xl font-black leading-none mb-4">"</div>
               <p className="text-white text-xl md:text-2xl font-bold leading-snug italic mb-6">
-                So when you order from me, know this — you'll get the very best I have to give. Honesty, whether it's what you want to hear or not. No empty promises. No shortcuts. No pretending.
+                When you order from me, know this — you'll get the very best I have to give. Honesty, whether it's what you want to hear or not. No empty promises. No shortcuts. No pretending.
               </p>
               <cite className="text-zinc-400 font-bold uppercase tracking-wider text-sm not-italic">
                 — The Lioness, Founder
