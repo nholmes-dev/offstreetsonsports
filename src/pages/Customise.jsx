@@ -519,7 +519,8 @@ export default function Customise() {
           {/* ── STEP 4: CUSTOMISATION ── */}
           {step === 4 && !isBundle && (
             <motion.div key="s4-standard" variants={slideVariants} initial="hidden" animate="visible" exit="exit" className="flex flex-col">
-              <h2 className="text-2xl font-bold uppercase mb-6">Make It Yours</h2>
+              <h2 className="text-2xl font-bold uppercase mb-1">Make It Yours</h2>
+              <p className="text-brand text-sm font-black uppercase tracking-widest mb-6">{currentItem.quantity}× {currentItem.garmentType}</p>
               <div className="mb-5">
                 <label className="block text-zinc-400 mb-2 font-bold uppercase text-xs">Custom Text / Initials</label>
                 <input type="text" placeholder="e.g. 'THE CHAMP' on waistband" value={currentItem.customText} onChange={(e) => setCurrentItem({ ...currentItem, customText: e.target.value })} className="w-full bg-zinc-950 border border-zinc-700 rounded-lg p-4 focus:border-brand focus:outline-none" />
@@ -549,9 +550,7 @@ export default function Customise() {
           {step === 4 && isBundle && bundleSubStep === 1 && (
             <motion.div key="s4-b1" variants={slideVariants} initial="hidden" animate="visible" exit="exit" className="flex flex-col">
               <BundleProgress />
-              <div className="flex items-center gap-3 mb-1">
-                <span className="text-brand font-black text-xs uppercase tracking-widest">1 of 3</span>
-              </div>
+              <p className="text-brand text-sm font-black uppercase tracking-widest mb-1">{currentItem.quantity}× {currentItem.garmentType} — 1 of 3</p>
               <h2 className="text-2xl font-bold uppercase mb-6">Ring Jacket</h2>
               <div className="mb-5">
                 <label className="block text-zinc-400 mb-2 font-bold uppercase text-xs">Custom Text / Initials</label>
@@ -573,9 +572,7 @@ export default function Customise() {
           {step === 4 && isBundle && bundleSubStep === 2 && (
             <motion.div key="s4-b2" variants={slideVariants} initial="hidden" animate="visible" exit="exit" className="flex flex-col">
               <BundleProgress />
-              <div className="flex items-center gap-3 mb-1">
-                <span className="text-brand font-black text-xs uppercase tracking-widest">2 of 3</span>
-              </div>
+              <p className="text-brand text-sm font-black uppercase tracking-widest mb-1">{currentItem.quantity}× {currentItem.garmentType} — 2 of 3</p>
               <h2 className="text-2xl font-bold uppercase mb-6">Fight Shorts</h2>
               <div className="mb-5">
                 <label className="block text-zinc-400 mb-2 font-bold uppercase text-xs">Custom Text / Initials</label>
@@ -600,9 +597,7 @@ export default function Customise() {
           {step === 4 && isBundle && bundleSubStep === 3 && (
             <motion.div key="s4-b3" variants={slideVariants} initial="hidden" animate="visible" exit="exit" className="flex flex-col">
               <BundleProgress />
-              <div className="flex items-center gap-3 mb-1">
-                <span className="text-brand font-black text-xs uppercase tracking-widest">3 of 3</span>
-              </div>
+              <p className="text-brand text-sm font-black uppercase tracking-widest mb-1">{currentItem.quantity}× {currentItem.garmentType} — 3 of 3</p>
               <h2 className="text-2xl font-bold uppercase mb-6">T-Shirt or Vest?</h2>
               <div className="mb-6">
                 <label className="block text-zinc-400 mb-3 font-bold uppercase text-xs">Choose your top *</label>
