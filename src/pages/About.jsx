@@ -151,7 +151,6 @@ export default function About() {
           viewport={{ once: true }}
           className="border-t border-b border-zinc-800 py-14 mb-16 text-center"
         >
-          <p className="text-zinc-500 uppercase tracking-widest text-xs mb-8">Because that's how I live, and that's how I do business</p>
           <div className="space-y-2">
             {['You can buy quality.', 'You can buy style.', 'You can buy expensive.'].map((line, i) => (
               <motion.p
