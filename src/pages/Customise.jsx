@@ -288,11 +288,11 @@ export default function Customise() {
               <div className="space-y-4 mb-8">
                 <div>
                   <label className="block text-zinc-400 mb-1 font-bold uppercase text-xs">Full Name *</label>
-                  <input type="text" placeholder="e.g. Tyson Fury" value={customerInfo.fullName} onChange={(e) => setCustomerInfo({ ...customerInfo, fullName: e.target.value })} className="w-full bg-zinc-950 border border-zinc-700 rounded-lg p-3 focus:border-brand focus:outline-none" />
+                  <input type="text" value={customerInfo.fullName} onChange={(e) => setCustomerInfo({ ...customerInfo, fullName: e.target.value })} className="w-full bg-zinc-950 border border-zinc-700 rounded-lg p-3 focus:border-brand focus:outline-none" />
                 </div>
                 <div>
                   <label className="block text-zinc-400 mb-1 font-bold uppercase text-xs">Email Address *</label>
-                  <input type="email" placeholder="e.g. champ@boxing.com" value={customerInfo.email} onChange={(e) => setCustomerInfo({ ...customerInfo, email: e.target.value })} className="w-full bg-zinc-950 border border-zinc-700 rounded-lg p-3 focus:border-brand focus:outline-none" />
+                  <input type="email" value={customerInfo.email} onChange={(e) => setCustomerInfo({ ...customerInfo, email: e.target.value })} className="w-full bg-zinc-950 border border-zinc-700 rounded-lg p-3 focus:border-brand focus:outline-none" />
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
