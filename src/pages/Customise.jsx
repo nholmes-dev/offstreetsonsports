@@ -80,6 +80,8 @@ const calculateItemEstimate = (item) => {
   return (product.fixedPrice ?? product.fromPrice) * qty;
 };
 
+const FIGHT_SHORTS = ['Standard Fight Shorts', 'Gladiator Shorts'];
+
 const emptyItem = {
   garmentType: '',
   quantity: 1,
@@ -281,7 +283,12 @@ export default function Customise() {
                       {cat.items.map((product) => (
                         <button
                           key={product.name}
-                          onClick={() => setCurrentItem({ ...currentItem, garmentType: product.name })}
+                          onClick={() => setCurrentItem({
+                          ...currentItem,
+                          garmentType: product.name,
+                          premiumMaterials: FIGHT_SHORTS.includes(product.name) ? currentItem.premiumMaterials : false,
+                          embroideredSideBand: FIGHT_SHORTS.includes(product.name) ? currentItem.embroideredSideBand : false,
+                        })}
                           className={`p-4 rounded-lg border-2 text-left transition-all font-bold ${
                             currentItem.garmentType === product.name
                               ? 'border-brand text-brand bg-brand/10'
@@ -374,8 +381,8 @@ export default function Customise() {
                 />
               </div>
 
-              {/* Optional upgrades */}
-              <div className="mb-5">
+              {/* Optional upgrades — fight shorts only */}
+              {FIGHT_SHORTS.includes(currentItem.garmentType) && <div className="mb-5">
                 <label className="block text-zinc-400 mb-3 font-bold uppercase text-xs">Optional Upgrades</label>
                 <div className="space-y-3">
                   <label className={`flex items-center gap-4 p-4 rounded-lg border-2 cursor-pointer transition-all ${currentItem.premiumMaterials ? 'border-brand bg-brand/10' : 'border-zinc-700 hover:border-zinc-500'}`}>
@@ -406,7 +413,7 @@ export default function Customise() {
                     </div>
                   </label>
                 </div>
-              </div>
+              </div>}
 
               <div className="mb-5">
                 <label className="block text-zinc-400 mb-2 font-bold uppercase text-xs">Precise Specs & Additional Info</label>
