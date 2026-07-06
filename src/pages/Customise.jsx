@@ -83,6 +83,7 @@ const calculateItemEstimate = (item) => {
 
   let base;
   if (item.garmentType === 'T-Shirt') {
+    if (qty > TSHIRT_BUNDLES[0].minQty) return null;
     const bundle = getTShirtBundle(qty);
     base = bundle ? bundle.price : product.fromPrice * qty;
   } else {
@@ -474,10 +475,17 @@ export default function Customise() {
                     )}
                     {!isBundle && !isEnquiry && p && (() => {
                       if (currentItem.garmentType === 'T-Shirt') {
-                        const bundle      = getTShirtBundle(qty);
+                        const topBundle    = TSHIRT_BUNDLES[0];
+                        const bundle       = getTShirtBundle(qty);
                         const standardCost = p.fromPrice * qty;
                         const saving       = bundle ? standardCost - bundle.price : 0;
                         const nextBundle   = TSHIRT_BUNDLES.slice().reverse().find((b) => b.minQty > qty);
+                        if (qty > topBundle.minQty) return (
+                          <div className="mt-3 bg-zinc-800 border border-zinc-700 rounded-lg p-3">
+                            <p className="text-zinc-300 font-bold text-sm">Price on enquiry</p>
+                            <p className="text-zinc-500 text-xs mt-0.5">For orders above {topBundle.minQty}, pricing will be confirmed once I review your order.</p>
+                          </div>
+                        );
                         if (bundle) return (
                           <div className="mt-3 space-y-2">
                             <div className="bg-brand/10 border border-brand/30 rounded-lg p-3">
