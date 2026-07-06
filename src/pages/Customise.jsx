@@ -338,10 +338,11 @@ export default function Customise() {
           {step === 2 && (
             <motion.div key="s2" variants={slideVariants} initial="hidden" animate="visible" exit="exit" className="flex flex-col">
               <h2 className="text-2xl font-bold uppercase mb-2">Select Your Gear</h2>
-              <p className="text-zinc-500 text-sm flex items-center gap-2 mb-6">
+              <p className="text-zinc-500 text-sm flex items-center gap-2 mb-2">
                 <Info size={15} className="shrink-0 text-zinc-600" />
                 Prices shown are estimates — final cost confirmed once I review your order.
               </p>
+              <p className="text-zinc-600 text-xs mb-6">Select one item at a time. After customising each piece you'll be brought back here to add more to your order.</p>
               <div className="space-y-6 mb-6">
                 {categories.map((cat) => (
                   <div key={cat.label}>
@@ -353,11 +354,14 @@ export default function Customise() {
                       {cat.items.map((product) => (
                         <button
                           key={product.name}
-                          onClick={() => setCurrentItem({
-                            ...emptyItem,
-                            garmentType: product.name,
-                            quantity: product.enquiryOnly ? 10 : 1,
-                          })}
+                          onClick={() => {
+                            setCurrentItem({
+                              ...emptyItem,
+                              garmentType: product.name,
+                              quantity: product.enquiryOnly ? 10 : 1,
+                            });
+                            nextStep();
+                          }}
                           className={`p-4 rounded-lg border-2 text-left transition-all font-bold ${currentItem.garmentType === product.name ? 'border-brand text-brand bg-brand/10' : 'border-zinc-700 hover:border-zinc-500'}`}
                         >
                           <div className="text-sm uppercase">{product.name}</div>
@@ -374,11 +378,8 @@ export default function Customise() {
                 ))}
               </div>
               {cart.length > 0 && <div className="text-brand text-sm font-bold mb-4">You currently have {cart.length} item(s) in your order.</div>}
-              <div className="flex justify-between pt-2">
+              <div className="flex justify-start pt-2">
                 <button onClick={prevStep} className="text-zinc-400 font-bold flex items-center gap-2 hover:text-white"><ChevronLeft size={20} /> Back</button>
-                <button onClick={nextStep} disabled={!currentItem.garmentType} className="bg-brand text-black px-6 py-3 rounded-lg font-bold flex items-center gap-2 disabled:opacity-50 hover:bg-[#c99338] transition-colors">
-                  Next <ChevronRight size={20} />
-                </button>
               </div>
             </motion.div>
           )}
