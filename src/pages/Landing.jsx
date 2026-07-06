@@ -148,7 +148,7 @@ export default function Landing() {
                       {' '}
                       <a
                         href={step.highlightHref}
-                        className="text-brand font-bold hover:underline"
+                        className="text-brand font-bold hover:underline break-all"
                       >
                         {step.highlight}
                       </a>
