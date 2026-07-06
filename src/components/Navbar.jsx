@@ -64,7 +64,7 @@ export default function Navbar() {
             onClick={() => setIsMenuOpen(false)}
             className="text-zinc-300 text-center py-3 font-bold uppercase tracking-wide border border-zinc-800 rounded-md hover:border-zinc-600 hover:text-white transition-all"
           >
-            About Us
+            About Me
           </Link>
 
           <div className="flex justify-center gap-8 text-zinc-300 pt-4 border-t border-zinc-800/50">
