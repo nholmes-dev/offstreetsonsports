@@ -300,6 +300,7 @@ export default function Customise() {
                           onClick={() => setCurrentItem({
                           ...currentItem,
                           garmentType: product.name,
+                          quantity: product.enquiryOnly ? Math.max(10, parseInt(currentItem.quantity) || 1) : currentItem.quantity,
                           premiumMaterials: FIGHT_SHORTS.includes(product.name) ? currentItem.premiumMaterials : false,
                           embroideredSideBand: FIGHT_SHORTS.includes(product.name) ? currentItem.embroideredSideBand : false,
                         })}
@@ -348,17 +349,29 @@ export default function Customise() {
           {step === 3 && (
             <motion.div key="s3" variants={slideVariants} initial="hidden" animate="visible" exit="exit" className="flex flex-col min-h-[400px]">
               <h2 className="text-2xl font-bold uppercase mb-6">How many do you need?</h2>
+              {(() => { const isEnquiry = getProductInfo(currentItem.garmentType)?.enquiryOnly; return (
               <div className="mb-8">
                 <label className="block text-zinc-400 mb-2 font-bold uppercase text-sm">
                   Quantity for {currentItem.garmentType}
                 </label>
                 <input
                   type="number"
-                  min="1"
+                  min={isEnquiry ? 10 : 1}
                   value={currentItem.quantity}
-                  onChange={(e) => setCurrentItem({ ...currentItem, quantity: e.target.value })}
+                  onChange={(e) => {
+                    const val = parseInt(e.target.value) || 1;
+                    setCurrentItem({ ...currentItem, quantity: isEnquiry ? Math.max(10, val) : val });
+                  }}
                   className="w-full bg-zinc-950 border border-zinc-700 rounded-lg p-4 text-xl focus:border-brand focus:outline-none"
                 />
+                {isEnquiry && (
+                  <p className="text-zinc-500 text-sm mt-2 flex items-center gap-1.5">
+                    <Info size={14} className="text-zinc-600 shrink-0" />
+                    Minimum order of 10 pieces for team &amp; club products
+                  </p>
+                )}
+              </div>
+              ); })()}
                 {(() => {
                   const p = getProductInfo(currentItem.garmentType);
                   if (!p || p.enquiryOnly) return null;
