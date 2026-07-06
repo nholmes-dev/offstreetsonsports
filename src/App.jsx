@@ -25,7 +25,7 @@ function AppLayout() {
           <Route path="/privacy" element={<Privacy />} />
         </Routes>
       </main>
-      {!isHome && <Footer />}
+      <Footer />
     </div>
   );
 }

@@ -7,9 +7,9 @@ export default function Footer() {
 
   return (
     <footer className="bg-zinc-950 border-t border-zinc-800/60 mt-auto">
-      <div className="max-w-6xl mx-auto px-6 py-14">
+      <div className="max-w-6xl mx-auto px-6 py-10">
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
 
           {/* Brand */}
           <div>
@@ -31,7 +31,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {[
                 { label: 'Home', to: '/' },
-                { label: 'About Us', to: '/about' },
+                { label: 'About Me', to: '/about' },
                 { label: 'Build Your Kit', to: '/customise' },
               ].map((link) => (
                 <li key={link.to}>
@@ -62,7 +62,7 @@ export default function Footer() {
               </li>
             </ul>
 
-            <div className="flex gap-4 mb-6">
+            <div className="flex gap-4">
               <a href="https://www.instagram.com/offstreetsonsports" target="_blank" rel="noreferrer" className="text-zinc-500 hover:text-brand transition-colors">
                 <Instagram size={20} />
               </a>
@@ -73,39 +73,29 @@ export default function Footer() {
                 <TikTokIcon size={20} />
               </a>
             </div>
-
-            <ul className="space-y-2">
-              {[
-                { label: 'Terms & Disclaimer', to: '/terms' },
-                { label: 'Privacy Policy', to: '/privacy' },
-              ].map((link) => (
-                <li key={link.to}>
-                  <Link
-                    to={link.to}
-                    className="text-zinc-500 hover:text-zinc-300 transition-colors text-xs"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-zinc-800/60 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-zinc-600 uppercase tracking-widest">
+        <div className="border-t border-zinc-800/60 pt-5 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-zinc-600 uppercase tracking-widest">
           <span>© {year} Off Streets On Sports. All rights reserved.</span>
-          <span>
-            Website by{' '}
-            <a
-              href="https://nhwebdesign.co.uk"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-zinc-500 hover:text-brand transition-colors"
-            >
-              NHWebDesign
-            </a>
-          </span>
+          <div className="flex items-center gap-3 flex-wrap justify-center">
+            <Link to="/terms" className="hover:text-brand transition-colors">Terms</Link>
+            <span className="text-zinc-700">·</span>
+            <Link to="/privacy" className="hover:text-brand transition-colors">Privacy</Link>
+            <span className="text-zinc-700">·</span>
+            <span>
+              Website by{' '}
+              <a
+                href="https://nhwebdesign.co.uk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-500 hover:text-brand transition-colors"
+              >
+                NHWebDesign
+              </a>
+            </span>
+          </div>
         </div>
       </div>
     </footer>
