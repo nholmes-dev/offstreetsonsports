@@ -425,9 +425,13 @@ export default function Customise() {
                   </div>
                 ))}
               </div>
-              {cart.length > 0 && <div className="text-brand text-sm font-bold mb-4">You currently have {cart.length} item(s) in your order.</div>}
-              <div className="flex justify-start pt-2">
+              <div className="flex justify-between items-center pt-2">
                 <button onClick={prevStep} className="text-zinc-400 font-bold flex items-center gap-2 hover:text-white"><ChevronLeft size={20} /> Back</button>
+                {cart.length > 0 && (
+                  <button onClick={() => setStep(5)} className="bg-brand text-black px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-[#c99338] transition-colors">
+                    View Order ({cart.length}) <ChevronRight size={20} />
+                  </button>
+                )}
               </div>
             </motion.div>
           )}
