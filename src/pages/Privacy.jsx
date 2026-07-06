@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import logo from '../logo.png';
 
 const fadeUp = {
   hidden: { y: 20, opacity: 0 },
@@ -53,7 +54,11 @@ export default function Privacy() {
 
       {/* Header */}
       <div className="relative overflow-hidden bg-zinc-900 border-b border-zinc-800">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand/10 via-transparent to-transparent pointer-events-none" />
+        <div
+          className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-10"
+          style={{ backgroundImage: `url(${logo})` }}
+        />
+        <div className="absolute inset-0 bg-zinc-900/60" />
         <div className="max-w-4xl mx-auto px-6 py-16 md:py-24 relative z-10">
           <motion.span
             initial={{ opacity: 0 }}
