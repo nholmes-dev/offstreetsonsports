@@ -309,7 +309,7 @@ export default function Customise() {
   // ── Success screen ──────────────────────────────────────────────────────────
   if (status === 'success') {
     return (
-      <div className="max-w-2xl mx-auto mt-12 p-6 text-center">
+      <div className="max-w-2xl mx-auto p-6 text-center flex flex-col items-center justify-center min-h-[60vh]">
         <CheckCircle className="text-brand w-24 h-24 mx-auto mb-6" />
         <h2 className="text-4xl font-black uppercase mb-4">Request Sent!</h2>
         <p className="text-zinc-400 mb-2">Thanks, {customerInfo.fullName.split(' ')[0]}! I'll review your specs and be in touch shortly.</p>
