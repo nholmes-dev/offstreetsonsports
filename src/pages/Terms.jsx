@@ -13,7 +13,7 @@ const sections = [
   {
     number: '01',
     title: 'Design Deposit',
-    content: `A £50 non-refundable deposit is required for all designs. This deposit secures your place in our production schedule and allows us to begin the design process.`
+    content: `A £50 non-refundable deposit is required for all designs. This deposit secures your place in our production schedule and allows us to begin the design process. The deposit will be deducted from your final balance.`
   },
   {
     number: '02',
