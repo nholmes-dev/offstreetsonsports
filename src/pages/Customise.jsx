@@ -34,7 +34,10 @@ const categories = [
   },
   {
     label: 'Flags & Walkout Banners',
-    items: [{ name: 'Fighter Walkout Flag/Banner', fromPrice: 20 }],
+    items: [
+      { name: 'Walkout Flag', fromPrice: 20 },
+      { name: 'Walkout Banner', fromPrice: 20 },
+    ],
   },
   {
     label: 'Team & Club Orders',
@@ -77,11 +80,29 @@ const calculateItemEstimate = (item) => {
   const product = getProductInfo(item.garmentType);
   if (!product || product.enquiryOnly) return null;
   const qty = parseInt(item.quantity) || 1;
+
+  let base;
   if (item.garmentType === 'T-Shirt') {
     const bundle = getTShirtBundle(qty);
-    return bundle ? bundle.price : product.fromPrice * qty;
+    base = bundle ? bundle.price : product.fromPrice * qty;
+  } else {
+    base = (product.fixedPrice ?? product.fromPrice) * qty;
   }
-  return (product.fixedPrice ?? product.fromPrice) * qty;
+
+  // Upgrades on standard fight shorts
+  if (FIGHT_SHORTS.includes(item.garmentType)) {
+    if (item.premiumMaterials) base += 20 * qty;
+    if (item.embroideredSideBand) base += 15 * qty;
+  }
+
+  // Upgrades on fight shorts inside a bundle
+  if (FIGHTER_BUNDLES.includes(item.garmentType)) {
+    const fs = item.bundleConfig?.fightShorts;
+    if (fs?.premiumMaterials) base += 20 * qty;
+    if (fs?.embroideredSideBand) base += 15 * qty;
+  }
+
+  return base;
 };
 
 // ─── Default state ─────────────────────────────────────────────────────────────
