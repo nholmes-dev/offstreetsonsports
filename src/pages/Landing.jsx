@@ -125,12 +125,8 @@ export default function Landing() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 custom={i}
-                className="relative bg-zinc-900 border border-zinc-800 rounded-2xl p-8 hover:border-brand/40 transition-colors group"
+                className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 hover:border-brand/40 transition-colors group"
               >
-                {/* Connector line (desktop only) */}
-                {i < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-12 -right-4 w-8 h-px bg-zinc-700 z-10" />
-                )}
 
                 <div className="flex items-start justify-between mb-6">
                   <span className="text-5xl font-black text-brand/20 leading-none select-none group-hover:text-brand/30 transition-colors">
