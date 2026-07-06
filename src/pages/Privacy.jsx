@@ -44,7 +44,7 @@ const sections = [
   {
     number: '07',
     title: 'Changes to This Policy',
-    content: `I may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date. Continued use of this website after changes constitutes acceptance of the updated policy.\n\nLast updated: July 2025`
+    content: `I may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date. Continued use of this website after changes constitutes acceptance of the updated policy.\n\nLast updated: July 2026`
   }
 ];
 
