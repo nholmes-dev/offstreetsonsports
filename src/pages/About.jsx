@@ -37,8 +37,8 @@ export default function About() {
       {/* Hero Banner */}
       <div className="relative overflow-hidden bg-zinc-900 border-b border-zinc-800">
         <div
-          className="absolute inset-0 bg-cover bg-top bg-no-repeat"
-          style={{ backgroundImage: `url(${lioness})` }}
+          className="absolute inset-0 bg-cover bg-no-repeat"
+          style={{ backgroundImage: `url(${lioness})`, backgroundPosition: 'center 20%' }}
         />
         <div className="absolute inset-0 bg-zinc-950/75" />
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28 relative z-10">
