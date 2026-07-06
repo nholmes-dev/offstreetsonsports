@@ -55,7 +55,7 @@ export default function About() {
             custom={1}
             className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6"
           >
-            I Am<br />
+            I am<br />
             <span className="text-brand">The Lioness</span>
           </motion.h1>
 
