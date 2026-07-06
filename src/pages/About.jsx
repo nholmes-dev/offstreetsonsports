@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Shield, Users, Star, ChevronRight } from 'lucide-react';
+import lioness from '../lioness.jpg';
 
 const fadeUp = {
   hidden: { y: 30, opacity: 0 },
@@ -35,7 +36,11 @@ export default function About() {
 
       {/* Hero Banner */}
       <div className="relative overflow-hidden bg-zinc-900 border-b border-zinc-800">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand/10 via-transparent to-transparent pointer-events-none" />
+        <div
+          className="absolute inset-0 bg-cover bg-top bg-no-repeat"
+          style={{ backgroundImage: `url(${lioness})` }}
+        />
+        <div className="absolute inset-0 bg-zinc-950/75" />
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28 relative z-10">
           <motion.div
             variants={fadeUp}

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Phone, Mail, Instagram, Facebook, BicepsFlexed, Menu, X } from 'lucide-react';
+import { Phone, Mail, Instagram, Facebook, Menu, X } from 'lucide-react';
 import TikTokIcon from './TikTokIcon';
+import logo from '../logo.png';
 
 export default function Navbar() {
   const location = useLocation();
@@ -15,14 +16,8 @@ export default function Navbar() {
       <div className="p-4 md:p-6 flex justify-between items-center">
         
         {/* 1. Mobile-Optimized Logo Area */}
-        <Link to="/" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 md:gap-3 text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tighter shrink-0">
-          <BicepsFlexed className="text-brand size-7 md:size-8 shrink-0" strokeWidth={2.5} />
-          {/* Stacks the text cleanly on mobile, inline on desktop */}
-          <div className="flex flex-col sm:flex-row sm:gap-2 leading-none md:leading-normal">
-            <span>Off Streets</span>
-            <span className="hidden sm:inline text-brand">-</span>
-            <span className="text-brand">On Sports</span>
-          </div>
+        <Link to="/" onClick={() => setIsMenuOpen(false)} className="shrink-0">
+          <img src={logo} alt="Off Streets On Sports" className="h-10 md:h-12 w-auto" />
         </Link>
         
         {/* 2. Desktop Navigation (Hidden on Mobile) */}
