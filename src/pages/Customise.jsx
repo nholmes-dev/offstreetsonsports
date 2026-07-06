@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, ChevronLeft, CheckCircle, Calculator, Plus, Trash2, User, Info, Mail, Sparkles } from 'lucide-react';
 
@@ -183,11 +183,19 @@ export default function Customise() {
   const [customerInfo, setCustomerInfo] = useState({ fullName: '', email: '', phone: '', gymOrCompany: '' });
   const [cart, setCart]               = useState([]);
   const [currentItem, setCurrentItem] = useState(emptyItem);
+  const formRef = useRef(null);
 
   const nextStep = () => setStep((p) => p + 1);
   const prevStep = () => setStep((p) => p - 1);
 
   const isBundle = FIGHTER_BUNDLES.includes(currentItem.garmentType);
+
+  // Scroll to top of form on step/substep change
+  useEffect(() => {
+    if (formRef.current) {
+      formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [step, bundleSubStep]);
 
   // Browser back interception
   useEffect(() => {
@@ -220,18 +228,58 @@ export default function Customise() {
     if (updated.length === 0) setStep(2);
   };
 
+  const buildSubmissionPayload = () => {
+    const fields = {
+      'Name':         customerInfo.fullName,
+      'Email':        customerInfo.email,
+      'Phone':        customerInfo.phone || 'Not provided',
+      'Gym or Team':  customerInfo.gymOrCompany || 'Not provided',
+    };
+
+    cart.forEach((item, idx) => {
+      const n = idx + 1;
+      const p = `Item ${n}`;
+      fields[`${p} — Product`] = `${item.quantity}x ${item.garmentType}`;
+
+      if (FIGHTER_BUNDLES.includes(item.garmentType)) {
+        fields[`${p} — Ring Jacket Custom Text`]  = item.bundleConfig.ringJacket.customText || 'None';
+        fields[`${p} — Ring Jacket Specs`]         = item.bundleConfig.ringJacket.furtherInfo || 'None';
+        fields[`${p} — Fight Shorts Custom Text`]  = item.bundleConfig.fightShorts.customText || 'None';
+        const fsUpgrades = [
+          item.bundleConfig.fightShorts.premiumMaterials    && 'Premium Materials (+£20)',
+          item.bundleConfig.fightShorts.embroideredSideBand && 'Embroidered Side Band (+£15/side)',
+        ].filter(Boolean);
+        if (fsUpgrades.length) fields[`${p} — Fight Shorts Upgrades`] = fsUpgrades.join(', ');
+        fields[`${p} — Fight Shorts Specs`]  = item.bundleConfig.fightShorts.furtherInfo || 'None';
+        fields[`${p} — Top Choice`]          = item.bundleConfig.topChoice || 'Not selected';
+        fields[`${p} — Top Custom Text`]     = item.bundleConfig.top.customText || 'None';
+        fields[`${p} — Top Specs`]           = item.bundleConfig.top.furtherInfo || 'None';
+      } else {
+        fields[`${p} — Custom Text`]     = item.customText || 'None';
+        const upgrades = [
+          item.premiumMaterials    && 'Premium Materials (+£20)',
+          item.embroideredSideBand && 'Embroidered Side Band (+£15/side)',
+        ].filter(Boolean);
+        if (upgrades.length) fields[`${p} — Upgrades`] = upgrades.join(', ');
+        fields[`${p} — Additional Info`] = item.furtherInfo || 'None';
+      }
+
+      const est = calculateItemEstimate(item);
+      fields[`${p} — Estimate`] = est ? `From £${est}` : 'Price on enquiry';
+    });
+
+    fields['Estimated Total'] = grandEstimate > 0 ? `From £${grandEstimate}` : 'Price on enquiry';
+    if (hasEnquiryItems) fields['Note'] = 'Some items are priced on enquiry and not included in the total above.';
+    return fields;
+  };
+
   const handleSubmit = async () => {
     setStatus('submitting');
     try {
       const res = await fetch('https://formspree.io/f/xrevjbrg', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          customerDetails: customerInfo,
-          orderItems: cart,
-          estimatedTotal: grandEstimate > 0 ? `From £${grandEstimate}` : 'Price on enquiry',
-          note: hasEnquiryItems ? 'Order includes items priced on enquiry' : undefined,
-        }),
+        body: JSON.stringify(buildSubmissionPayload()),
       });
       res.ok ? setStatus('success') : (() => { setStatus('idle'); alert('There was an issue. Please try again.'); })();
     } catch {
@@ -286,7 +334,7 @@ export default function Customise() {
 
   // ── Main render ─────────────────────────────────────────────────────────────
   return (
-    <div className="max-w-3xl mx-auto p-6 pt-28">
+    <div ref={formRef} className="max-w-3xl mx-auto p-6 pt-28">
 
       {step < 5 && (
         <div className="mb-8 flex items-center gap-2">
@@ -346,9 +394,9 @@ export default function Customise() {
               <div className="space-y-6 mb-6">
                 {categories.map((cat) => (
                   <div key={cat.label}>
-                    <div className="flex items-baseline gap-3 mb-2">
+                    <div className="mb-2">
                       <h3 className="text-xs font-black uppercase tracking-widest text-brand">{cat.label}</h3>
-                      {cat.note && <span className="text-xs text-zinc-500 truncate">{cat.note}</span>}
+                      {cat.note && <p className="text-xs text-zinc-500 mt-0.5">{cat.note}</p>}
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {cat.items.map((product) => (
