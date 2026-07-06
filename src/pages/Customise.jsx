@@ -478,7 +478,7 @@ export default function Customise() {
                         const topBundle    = TSHIRT_BUNDLES[0];
                         const bundle       = getTShirtBundle(qty);
                         const standardCost = p.fromPrice * qty;
-                        const saving       = bundle ? standardCost - bundle.price : 0;
+                        const saving       = bundle ? p.fromPrice * bundle.minQty - bundle.price : 0;
                         const nextBundle   = TSHIRT_BUNDLES.slice().reverse().find((b) => b.minQty > qty);
                         if (qty > topBundle.minQty) return (
                           <div className="mt-3 bg-zinc-800 border border-zinc-700 rounded-lg p-3">
@@ -706,7 +706,7 @@ export default function Customise() {
                       )}
 
                       <div className="text-right font-bold text-sm border-t border-zinc-800 pt-3 mt-3 text-zinc-300">
-                        {product?.enquiryOnly
+                        {(product?.enquiryOnly || est === null)
                           ? <span className="text-zinc-500 italic">Price on enquiry</span>
                           : <span>Est. from <span className="text-brand">£{est}</span></span>
                         }
