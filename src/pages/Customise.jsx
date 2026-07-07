@@ -335,7 +335,7 @@ export default function Customise() {
 
   // ── Main render ─────────────────────────────────────────────────────────────
   return (
-    <div ref={formRef} className="max-w-3xl mx-auto p-6 pt-28">
+    <div ref={formRef} className="max-w-3xl mx-auto p-6 pt-28 md:pt-36">
 
       {step < 5 && (
         <div className="mb-8 flex items-center gap-2">

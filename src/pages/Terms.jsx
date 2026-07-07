@@ -45,7 +45,7 @@ const sections = [
 
 export default function Terms() {
   return (
-    <div className="pt-24 pb-16">
+    <div className="pt-24 md:pt-32 pb-16">
 
       {/* Header */}
       <div className="relative overflow-hidden bg-zinc-900 border-b border-zinc-800">

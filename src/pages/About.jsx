@@ -32,7 +32,7 @@ const values = [
 
 export default function About() {
   return (
-    <div className="pt-24 pb-16">
+    <div className="pt-24 md:pt-32 pb-16">
 
       {/* Hero Banner */}
       <div className="relative overflow-hidden bg-zinc-900 border-b border-zinc-800">
