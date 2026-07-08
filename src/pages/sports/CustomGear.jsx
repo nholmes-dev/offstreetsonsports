@@ -1,6 +1,7 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { Palette, Flag, Package, ChevronRight } from 'lucide-react';
 import SportEnquiryForm from '../../components/SportEnquiryForm';
+import heroImg from '../../Team gear.jpg';
 
 const fadeUp = {
   hidden: { y: 30, opacity: 0 },
@@ -8,9 +9,9 @@ const fadeUp = {
 };
 
 const products = [
-  { name: 'Walkout Flags', desc: 'Full-colour custom flags for fight night entrances', price: 'From £20' },
-  { name: 'Walkout Banners', desc: 'Large format banners to fill your ringside', price: 'From £20' },
-  { name: 'Custom Hoodies', desc: 'One-off or small batch custom hoodies', price: 'From £35' },
+  { name: 'Walkout Flags', desc: 'Full-colour custom flags for fight night entrances', price: 'From Â£20' },
+  { name: 'Walkout Banners', desc: 'Large format banners to fill your ringside', price: 'From Â£20' },
+  { name: 'Custom Hoodies', desc: 'One-off or small batch custom hoodies', price: 'From Â£35' },
   { name: 'Event Apparel', desc: 'Custom clothing for events, promotions, or charities', price: 'Price on enquiry' },
   { name: 'School Uniforms', desc: 'Custom PE kits and sports uniforms for schools', price: 'Price on enquiry' },
   { name: 'Anything Else?', desc: 'If you can wear it in sport, we can probably make it', price: 'Just ask' },
@@ -22,8 +23,9 @@ export default function CustomGear() {
 
       {/* Hero */}
       <div className="relative overflow-hidden border-b border-zinc-800">
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #1a1200 0%, #0a0a0a 60%, #0d0d0d 100%)' }} />
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #B68332 0, #B68332 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
+        <img src={heroImg} alt="" className="absolute inset-0 w-full h-full object-cover object-center" />
+        <div className="absolute inset-0 bg-zinc-950/65" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(26,18,0,0.5) 0%, transparent 70%)' }} />
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 md:py-28">
           <motion.span variants={fadeUp} initial="hidden" animate="visible" custom={0}
             className="inline-block text-brand font-black uppercase tracking-widest text-sm mb-4 border border-brand/40 px-3 py-1 rounded-full">
@@ -36,7 +38,7 @@ export default function CustomGear() {
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={2} className="w-16 h-1 bg-brand mb-6" />
           <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={3}
             className="text-zinc-300 text-lg max-w-2xl leading-relaxed mb-8">
-            Walkout flags, event gear, school uniforms, one-off custom pieces — if it's wearable in sport, we can create it. Just tell us what you need.
+            Walkout flags, event gear, school uniforms, one-off custom pieces â€” if it's wearable in sport, we can create it. Just tell us what you need.
           </motion.p>
           <motion.a variants={fadeUp} initial="hidden" animate="visible" custom={4}
             href="#enquiry"
@@ -65,8 +67,8 @@ export default function CustomGear() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
           {[
             { icon: Palette, title: 'Fully Bespoke', body: 'No catalogues, no templates. Every piece starts with a blank canvas and your brief.' },
-            { icon: Flag, title: 'Fight Night Specialists', body: 'We\'ve created walkout gear for fighters at all levels — from local shows to national events.' },
-            { icon: Package, title: 'No Order Too Small', body: 'Need just one flag or one hoodie? No problem — we cater to individuals and large orders alike.' },
+            { icon: Flag, title: 'Fight Night Specialists', body: 'We\'ve created walkout gear for fighters at all levels â€” from local shows to national events.' },
+            { icon: Package, title: 'No Order Too Small', body: 'Need just one flag or one hoodie? No problem â€” we cater to individuals and large orders alike.' },
           ].map(({ icon: Icon, title, body }, i) => (
             <motion.div key={title} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i * 0.3}
               className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
@@ -88,3 +90,4 @@ export default function CustomGear() {
     </div>
   );
 }
+

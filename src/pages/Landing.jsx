@@ -3,6 +3,14 @@ import { motion } from 'framer-motion';
 import { Mail, CreditCard, Paintbrush, Package, ChevronDown, ChevronRight, ArrowRight } from 'lucide-react';
 import heroBg from '../hero-bg1.png';
 import logo from '../logo.png';
+import galleryImg1 from '../Boxing gear 1.jpg';
+import galleryImg2 from '../Boxing Premium.jpg';
+import galleryImg3 from '../London kit.jpg';
+import galleryImg4 from '../Football team.jpg';
+import galleryImg5 from '../PT Gear.jpg';
+import galleryImg6 from '../Dance team.jpg';
+import galleryImg7 from '../Rugby Polo.jpg';
+import galleryImg8 from '../Bundle.jpg';
 
 const fadeUp = {
   hidden: { y: 40, opacity: 0 },
@@ -267,14 +275,14 @@ export default function Landing() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mb-12">
             {[
-              { label: 'Fighter Bundle', bg: 'from-red-950 to-zinc-900' },
-              { label: 'Rugby Kit', bg: 'from-green-950 to-zinc-900' },
-              { label: 'Football Kit', bg: 'from-blue-950 to-zinc-900' },
-              { label: 'Gym Wear', bg: 'from-purple-950 to-zinc-900' },
-              { label: 'Fight Shorts', bg: 'from-red-950 to-zinc-900' },
-              { label: 'Dancewear', bg: 'from-pink-950 to-zinc-900' },
-              { label: 'Walkout Jacket', bg: 'from-amber-950 to-zinc-900' },
-              { label: 'Club Package', bg: 'from-teal-950 to-zinc-900' },
+              { label: 'Fight Wear', img: galleryImg1 },
+              { label: 'Fighter Bundle', img: galleryImg2 },
+              { label: 'Rugby Kit', img: galleryImg3 },
+              { label: 'Football Kit', img: galleryImg4 },
+              { label: 'Gym Wear', img: galleryImg5 },
+              { label: 'Dancewear', img: galleryImg6 },
+              { label: 'Club Kit', img: galleryImg7 },
+              { label: 'Custom Bundle', img: galleryImg8 },
             ].map((item, i) => (
               <motion.div
                 key={item.label}
@@ -283,11 +291,19 @@ export default function Landing() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 custom={i * 0.08}
-                className={`bg-gradient-to-br ${item.bg} border border-zinc-800 rounded-xl aspect-square flex items-end p-4 group hover:border-brand/40 transition-colors`}
+                className="relative overflow-hidden rounded-xl aspect-square group cursor-pointer border border-zinc-800 hover:border-brand/50 transition-colors"
               >
-                <span className="text-zinc-500 text-xs font-bold uppercase tracking-wider group-hover:text-zinc-300 transition-colors">
-                  {item.label}
-                </span>
+                <img
+                  src={item.img}
+                  alt={item.label}
+                  className="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:scale-105 group-hover:brightness-100 transition-all duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-zinc-950/10 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-3">
+                  <span className="text-white text-xs font-black uppercase tracking-wider drop-shadow-lg">
+                    {item.label}
+                  </span>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -453,4 +469,6 @@ export default function Landing() {
     </div>
   );
 }
+
+
 

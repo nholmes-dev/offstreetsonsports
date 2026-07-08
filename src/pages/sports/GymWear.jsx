@@ -1,6 +1,7 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { Dumbbell, Layers, Zap, ChevronRight } from 'lucide-react';
 import SportEnquiryForm from '../../components/SportEnquiryForm';
+import heroImg from '../../PT Gear 1.jpg';
 
 const fadeUp = {
   hidden: { y: 30, opacity: 0 },
@@ -8,12 +9,12 @@ const fadeUp = {
 };
 
 const products = [
-  { name: 'T-Shirts', desc: 'Custom printed or embroidered — gym name, logo, slogan', price: 'From £25' },
-  { name: 'Hoodies', desc: 'Heavyweight pullover or zip hoodies with full custom print', price: 'From £35' },
-  { name: 'Training Shorts', desc: 'Comfortable performance shorts with custom design', price: 'From £30' },
-  { name: 'Training Sets', desc: 'Matching T-shirt & shorts set — perfect for gym branding', price: 'From £40' },
-  { name: 'Vests', desc: 'Lightweight training vests — bold designs that stand out', price: 'From £20' },
-  { name: 'Full Gym Packages', desc: 'Bulk orders for your whole gym — best pricing available', price: 'Price on enquiry' },
+  { name: 'T-Shirts', desc: 'Custom printed or embroidered â€” gym name, logo, slogan', price: 'From Â£25' },
+  { name: 'Hoodies', desc: 'Heavyweight pullover or zip hoodies with full custom print', price: 'From Â£35' },
+  { name: 'Training Shorts', desc: 'Comfortable performance shorts with custom design', price: 'From Â£30' },
+  { name: 'Training Sets', desc: 'Matching T-shirt & shorts set â€” perfect for gym branding', price: 'From Â£40' },
+  { name: 'Vests', desc: 'Lightweight training vests â€” bold designs that stand out', price: 'From Â£20' },
+  { name: 'Full Gym Packages', desc: 'Bulk orders for your whole gym â€” best pricing available', price: 'Price on enquiry' },
 ];
 
 export default function GymWear() {
@@ -22,8 +23,9 @@ export default function GymWear() {
 
       {/* Hero */}
       <div className="relative overflow-hidden border-b border-zinc-800">
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #1a0033 0%, #0a0a0a 60%, #000d1a 100%)' }} />
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #B68332 0, #B68332 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
+        <img src={heroImg} alt="" className="absolute inset-0 w-full h-full object-cover object-center" />
+        <div className="absolute inset-0 bg-zinc-950/65" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(20,0,50,0.5) 0%, transparent 70%)' }} />
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 md:py-28">
           <motion.span variants={fadeUp} initial="hidden" animate="visible" custom={0}
             className="inline-block text-brand font-black uppercase tracking-widest text-sm mb-4 border border-brand/40 px-3 py-1 rounded-full">
@@ -36,7 +38,7 @@ export default function GymWear() {
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={2} className="w-16 h-1 bg-brand mb-6" />
           <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={3}
             className="text-zinc-300 text-lg max-w-2xl leading-relaxed mb-8">
-            Custom gym wear for gyms, personal trainers, and fitness brands. T-shirts, hoodies, training sets — your brand, your identity, built to perform.
+            Custom gym wear for gyms, personal trainers, and fitness brands. T-shirts, hoodies, training sets â€” your brand, your identity, built to perform.
           </motion.p>
           <motion.a variants={fadeUp} initial="hidden" animate="visible" custom={4}
             href="#enquiry"
@@ -64,7 +66,7 @@ export default function GymWear() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
           {[
-            { icon: Dumbbell, title: 'For Gyms & PTs', body: 'Whether you\'re branding your gym or launching a PT clothing line — we make it happen.' },
+            { icon: Dumbbell, title: 'For Gyms & PTs', body: 'Whether you\'re branding your gym or launching a PT clothing line â€” we make it happen.' },
             { icon: Layers, title: 'Bulk Discounts', body: 'Order for your whole gym and benefit from better pricing the more you order.' },
             { icon: Zap, title: 'Quick Turnaround', body: 'We know gyms are busy. We work efficiently to get your kit to you as fast as possible.' },
           ].map(({ icon: Icon, title, body }, i) => (
@@ -88,3 +90,4 @@ export default function GymWear() {
     </div>
   );
 }
+

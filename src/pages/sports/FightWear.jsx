@@ -1,7 +1,8 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { Shield, Zap, Star, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SportEnquiryForm from '../../components/SportEnquiryForm';
+import heroImg from '../../Landscape fighter.jpg';
 
 const fadeUp = {
   hidden: { y: 30, opacity: 0 },
@@ -9,14 +10,14 @@ const fadeUp = {
 };
 
 const products = [
-  { name: 'Fighter Bundles', desc: 'Ring Jacket + Fight Shorts + Top — fully customised as a set', price: 'From £150' },
-  { name: 'Fight Shorts', desc: 'Standard and Gladiator styles — custom design, name, and colours', price: 'From £120' },
-  { name: 'Ring / Walk-Out Jackets', desc: 'Make your entrance unforgettable — fully personalised', price: 'From £80' },
-  { name: 'Training Kits', desc: 'T-shirt & shorts sets for gym and sparring sessions', price: 'From £40' },
+  { name: 'Fighter Bundles', desc: 'Ring Jacket + Fight Shorts + Top â€” fully customised as a set', price: 'From Â£150' },
+  { name: 'Fight Shorts', desc: 'Standard and Gladiator styles â€” custom design, name, and colours', price: 'From Â£120' },
+  { name: 'Ring / Walk-Out Jackets', desc: 'Make your entrance unforgettable â€” fully personalised', price: 'From Â£80' },
+  { name: 'Training Kits', desc: 'T-shirt & shorts sets for gym and sparring sessions', price: 'From Â£40' },
   { name: 'Muay Thai Shorts', desc: 'Traditional cut with modern custom design', price: 'Price on enquiry' },
   { name: 'MMA Gear', desc: 'Shorts, rash guards, and full MMA kit packages', price: 'Price on enquiry' },
   { name: 'Jiu-Jitsu Gis', desc: 'Custom embroidered and printed Gi sets', price: 'Price on enquiry' },
-  { name: 'Walkout Flags & Banners', desc: 'Make your ringside presence known', price: 'From £20' },
+  { name: 'Walkout Flags & Banners', desc: 'Make your ringside presence known', price: 'From Â£20' },
 ];
 
 export default function FightWear() {
@@ -25,8 +26,9 @@ export default function FightWear() {
 
       {/* Hero */}
       <div className="relative overflow-hidden border-b border-zinc-800">
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #3f0000 0%, #0a0a0a 60%, #1a0a00 100%)' }} />
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #B68332 0, #B68332 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
+        <img src={heroImg} alt="" className="absolute inset-0 w-full h-full object-cover object-top" />
+        <div className="absolute inset-0 bg-zinc-950/65" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(80,0,0,0.5) 0%, transparent 70%)' }} />
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 md:py-28">
           <motion.span variants={fadeUp} initial="hidden" animate="visible" custom={0}
             className="inline-block text-brand font-black uppercase tracking-widest text-sm mb-4 border border-brand/40 px-3 py-1 rounded-full">
@@ -39,7 +41,7 @@ export default function FightWear() {
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={2} className="w-16 h-1 bg-brand mb-6" />
           <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={3}
             className="text-zinc-300 text-lg max-w-2xl leading-relaxed mb-8">
-            Custom boxing, MMA, Muay Thai, and BJJ apparel. From fight night bundles to training kits — every piece is designed to carry your identity into the ring.
+            Custom boxing, MMA, Muay Thai, and BJJ apparel. From fight night bundles to training kits â€” every piece is designed to carry your identity into the ring.
           </motion.p>
           <motion.a variants={fadeUp} initial="hidden" animate="visible" custom={4}
             href="#enquiry"
@@ -53,7 +55,7 @@ export default function FightWear() {
       <div className="max-w-5xl mx-auto px-6 py-16">
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-10">
           <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight mb-2">What We <span className="text-brand">Create</span></h2>
-          <p className="text-zinc-500">Minimum orders apply on some items — all pricing is confirmed on enquiry.</p>
+          <p className="text-zinc-500">Minimum orders apply on some items â€” all pricing is confirmed on enquiry.</p>
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
           {products.map((p, i) => (
@@ -69,8 +71,8 @@ export default function FightWear() {
         {/* Why us */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
           {[
-            { icon: Shield, title: 'Combat Sports Roots', body: 'We started in the fight world. We know what fighters need — performance, identity, and kit that holds up.' },
-            { icon: Zap, title: 'Fully Custom', body: 'Your name, your gym, your colours. No templates — every piece is designed from scratch for you.' },
+            { icon: Shield, title: 'Combat Sports Roots', body: 'We started in the fight world. We know what fighters need â€” performance, identity, and kit that holds up.' },
+            { icon: Zap, title: 'Fully Custom', body: 'Your name, your gym, your colours. No templates â€” every piece is designed from scratch for you.' },
             { icon: Star, title: 'Premium Quality', body: 'Materials built to last. Whether it\'s fight night or daily training, your kit performs as hard as you do.' },
           ].map(({ icon: Icon, title, body }, i) => (
             <motion.div key={title} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i * 0.3}
@@ -94,3 +96,4 @@ export default function FightWear() {
     </div>
   );
 }
+

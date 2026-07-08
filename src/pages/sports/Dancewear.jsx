@@ -1,6 +1,7 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { Sparkles, Star, Heart, ChevronRight } from 'lucide-react';
 import SportEnquiryForm from '../../components/SportEnquiryForm';
+import heroImg from '../../Dance team.jpg';
 
 const fadeUp = {
   hidden: { y: 30, opacity: 0 },
@@ -11,7 +12,7 @@ const products = [
   { name: 'Street Dance Kits', desc: 'Bold, urban designs for crews and academies', price: 'Price on enquiry' },
   { name: 'Competition Costumes', desc: 'Stand-out stage wear for competitions and showcases', price: 'Price on enquiry' },
   { name: 'Cheerleading Uniforms', desc: 'Custom tops, skirts, and full cheerleading packages', price: 'Price on enquiry' },
-  { name: 'Dance Academy Wear', desc: 'Branded hoodies, T-shirts, and bags for your school', price: 'From £25' },
+  { name: 'Dance Academy Wear', desc: 'Branded hoodies, T-shirts, and bags for your school', price: 'From Â£25' },
   { name: 'Contemporary / Ballet', desc: 'Elegant, custom performance wear', price: 'Price on enquiry' },
   { name: 'Full Group Packages', desc: 'Dress your whole crew or school in one order', price: 'Price on enquiry' },
 ];
@@ -22,8 +23,9 @@ export default function Dancewear() {
 
       {/* Hero */}
       <div className="relative overflow-hidden border-b border-zinc-800">
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #2d0033 0%, #0a0a0a 60%, #1a001a 100%)' }} />
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #B68332 0, #B68332 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
+        <img src={heroImg} alt="" className="absolute inset-0 w-full h-full object-cover object-top" />
+        <div className="absolute inset-0 bg-zinc-950/65" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(45,0,50,0.5) 0%, transparent 70%)' }} />
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 md:py-28">
           <motion.span variants={fadeUp} initial="hidden" animate="visible" custom={0}
             className="inline-block text-brand font-black uppercase tracking-widest text-sm mb-4 border border-brand/40 px-3 py-1 rounded-full">
@@ -36,7 +38,7 @@ export default function Dancewear() {
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={2} className="w-16 h-1 bg-brand mb-6" />
           <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={3}
             className="text-zinc-300 text-lg max-w-2xl leading-relaxed mb-8">
-            Custom dancewear and performance costumes for dance schools, crews, and academies. From street dance to competition — designed to make you stand out on stage.
+            Custom dancewear and performance costumes for dance schools, crews, and academies. From street dance to competition â€” designed to make you stand out on stage.
           </motion.p>
           <motion.a variants={fadeUp} initial="hidden" animate="visible" custom={4}
             href="#enquiry"
@@ -66,7 +68,7 @@ export default function Dancewear() {
           {[
             { icon: Sparkles, title: 'Stage-Ready Designs', body: 'Every costume is designed to look incredible under stage lights and in competition settings.' },
             { icon: Star, title: 'School & Academy Packages', body: 'Brand your dance school with custom apparel your students will be proud to wear.' },
-            { icon: Heart, title: 'Made with Passion', body: 'We care about every detail — from the fabric to the finish, your dancers deserve the best.' },
+            { icon: Heart, title: 'Made with Passion', body: 'We care about every detail â€” from the fabric to the finish, your dancers deserve the best.' },
           ].map(({ icon: Icon, title, body }, i) => (
             <motion.div key={title} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i * 0.3}
               className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
@@ -88,3 +90,4 @@ export default function Dancewear() {
     </div>
   );
 }
+
