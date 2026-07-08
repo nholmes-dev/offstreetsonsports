@@ -64,9 +64,10 @@ export default function Landing() {
           transition={{ duration: 0.6 }}
           className="relative z-20 text-center"
         >
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-none mb-6">
-            Rule The <br />
-            <span className="text-brand drop-shadow-lg">Ring.</span>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none mb-6">
+            Be Built<br />
+            <span className="text-brand drop-shadow-lg">Different</span><br />
+            With Us.
           </h1>
 
           <p className="text-zinc-300 text-lg md:text-xl max-w-lg mx-auto mb-10 drop-shadow-md font-medium">
