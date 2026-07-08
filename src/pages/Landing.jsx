@@ -65,7 +65,7 @@ export default function Landing() {
           transition={{ duration: 0.6 }}
           className="relative z-20 text-center"
         >
-          <img src={logo} alt="Off Streets On Sports" className="h-64 md:h-80 lg:h-96 w-auto mx-auto mb-10 lg:mb-4 drop-shadow-2xl" />
+          <img src={logo} alt="Off Streets On Sports" className="h-64 md:h-80 lg:h-96 w-auto mx-auto mb-16 lg:mb-4 drop-shadow-2xl" />
 
           <p className="text-zinc-300 text-lg md:text-xl max-w-lg mx-auto mb-10 drop-shadow-md font-medium">
             Premium, personalised fightwear and team kits built for the streets and the spotlight. I am not just a brand, I am a brand with purpose
