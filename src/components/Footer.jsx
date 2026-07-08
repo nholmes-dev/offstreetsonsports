@@ -74,7 +74,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-zinc-800/60 pt-5 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-zinc-600 uppercase tracking-widest">
+        <div className="border-t border-zinc-800/60 pt-5 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-zinc-600 uppercase tracking-normal sm:tracking-widest">
           <span>© {year} Off Streets On Sports. All rights reserved.</span>
           <div className="flex items-center gap-3 flex-wrap justify-center">
             <Link to="/terms" className="hover:text-brand transition-colors">Terms</Link>
