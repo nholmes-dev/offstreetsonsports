@@ -64,10 +64,13 @@ export default function Landing() {
           transition={{ duration: 0.6 }}
           className="relative z-20 text-center"
         >
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-none mb-6">
-            Built<br />
-            <span className="text-brand drop-shadow-lg">Different.</span>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none mb-4">
+            Off Streets<br />
+            <span className="text-brand drop-shadow-lg">On Sports</span>
           </h1>
+          <p className="text-xl md:text-3xl font-black uppercase tracking-widest text-zinc-300 drop-shadow-md mb-6">
+            Built Different.
+          </p>
 
           <p className="text-zinc-300 text-lg md:text-xl max-w-lg mx-auto mb-10 drop-shadow-md font-medium">
             Premium, personalised fightwear and team kits built for the streets and the spotlight. I am not just a brand, I am a brand with purpose
