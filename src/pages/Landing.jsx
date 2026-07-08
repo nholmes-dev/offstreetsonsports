@@ -424,7 +424,7 @@ export default function Landing() {
             custom={1}
             className="text-black/70 text-lg mb-8 max-w-lg mx-auto font-medium"
           >
-            Click your sport above or use the kit builder — we will get back to you within 24 hours with a quote.
+            Click your sport above or use the kit builder — we'll get back to you within 24 hours with a quote.
           </motion.p>
           <motion.div
             variants={fadeUp}
@@ -453,3 +453,4 @@ export default function Landing() {
     </div>
   );
 }
+
