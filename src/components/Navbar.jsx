@@ -1,4 +1,4 @@
-﻿import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Phone, Mail, Instagram, Facebook, Menu, X, ChevronDown } from 'lucide-react';
 import TikTokIcon from './TikTokIcon';

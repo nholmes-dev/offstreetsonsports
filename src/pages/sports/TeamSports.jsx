@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Users, Award, Truck, ChevronRight } from 'lucide-react';
 import SportEnquiryForm from '../../components/SportEnquiryForm';
 import heroImg from '../../Football team.jpg';

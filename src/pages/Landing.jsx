@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Mail, CreditCard, Paintbrush, Package, ChevronDown, ChevronRight, ArrowRight } from 'lucide-react';
 import heroBg from '../hero-bg1.png';
