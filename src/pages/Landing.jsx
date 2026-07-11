@@ -517,11 +517,34 @@ export default function Landing() {
       </section>
 
       {/* ── CTA ────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden flex min-h-[480px]">
+      <section className="relative overflow-hidden flex min-h-[500px]">
 
-        {/* Left: brand colour panel */}
-        <div className="relative z-10 bg-brand flex-1 flex items-center px-8 md:px-14 py-20">
-          <div className="max-w-xl">
+        {/* Diagonal cut at very top — the dark section above bleeds in as a black triangle,
+            so the gold doesn't start with a straight horizontal line */}
+        <div
+          className="absolute top-0 inset-x-0 h-16 md:h-24 z-30 pointer-events-none"
+          style={{ background: 'linear-gradient(to bottom right, #09090b 50%, transparent 50%)' }}
+        />
+
+        {/* Left: brand gold panel */}
+        <div className="relative z-10 bg-brand flex-1 flex items-center px-8 md:px-14 py-28 overflow-hidden">
+
+          {/* Diagonal pinstripes — sports-jersey graphic texture */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundImage: 'repeating-linear-gradient(45deg, rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 2px, transparent 2px, transparent 22px)',
+            }}
+          />
+
+          {/* Ghost "BUILT DIFFERENT" watermark at bottom of panel */}
+          <div className="absolute bottom-0 left-0 right-0 overflow-hidden pointer-events-none select-none leading-none pb-1">
+            <span className="block text-[4.5rem] md:text-[6.5rem] font-black uppercase tracking-tighter text-black/[0.08] whitespace-nowrap">
+              BUILT DIFFERENT
+            </span>
+          </div>
+
+          <div className="relative">
             <motion.h2
               variants={fadeUp}
               initial="hidden"
@@ -537,7 +560,7 @@ export default function Landing() {
               whileInView="visible"
               viewport={{ once: true }}
               custom={1}
-              className="text-black/70 text-lg mb-8 font-medium leading-relaxed"
+              className="text-black/70 text-lg mb-8 font-medium leading-relaxed max-w-sm"
             >
               Use the kit builder or email us directly — we'll get back to you within 24 hours with a quote and design options.
             </motion.p>
