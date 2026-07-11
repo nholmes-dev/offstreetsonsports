@@ -144,74 +144,90 @@ export default function Landing() {
 
       {/* ── Hero ───────────────────────────────────────────── */}
       <div className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
+
+        {/* B&W photo background */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0 scale-105"
-          style={{ backgroundImage: `url(${heroBg})` }}
+          style={{
+            backgroundImage: `url(${heroBg})`,
+            filter: 'grayscale(100%) contrast(1.1) brightness(0.55)',
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/15 via-zinc-950/50 to-zinc-950/95 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/60 via-transparent to-zinc-950/60 z-10" />
 
-        <div className="relative z-20 text-center px-4 max-w-5xl mx-auto w-full">
+        {/* Radial spotlight: edges dark, centre slightly lighter so logo pops */}
+        <div
+          className="absolute inset-0 z-10"
+          style={{
+            background: 'radial-gradient(ellipse 75% 70% at 50% 44%, rgba(9,9,11,0.35) 0%, rgba(9,9,11,0.88) 100%)',
+          }}
+        />
 
-          {/* Eyebrow label */}
+        {/* Subtle gold centre glow behind the logo */}
+        <div
+          className="absolute inset-0 z-10"
+          style={{
+            background: 'radial-gradient(ellipse 45% 40% at 50% 42%, rgba(182,131,50,0.10) 0%, transparent 70%)',
+          }}
+        />
+
+        {/* Bottom fade to black (into ticker) */}
+        <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-zinc-950 to-transparent z-10" />
+
+        {/* Content */}
+        <div className="relative z-20 flex flex-col items-center text-center px-4">
+
+          {/* Eyebrow */}
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-brand font-black uppercase tracking-[0.3em] text-[11px] mb-10"
+            transition={{ delay: 0.15, duration: 0.6 }}
+            className="text-brand/70 font-bold uppercase tracking-[0.35em] text-[10px] mb-10"
           >
-            Premium Custom Sportswear · UK Wide
+            Fight Wear · Team Kits · Gym Wear · Dancewear
           </motion.p>
 
-          {/* Headline — outline BUILT + solid brand DIFFERENT */}
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.7 }}
-            className="mb-6"
-          >
-            <span
-              className="block text-[3.8rem] sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-[0.04em] leading-none mb-1"
-              style={{ WebkitTextStroke: '2px rgba(255,255,255,0.8)', color: 'transparent' }}
-            >
-              BUILT
-            </span>
-            <span
-              className="block text-[4.5rem] sm:text-8xl md:text-[9.5rem] lg:text-[11.5rem] font-black uppercase tracking-tighter leading-none text-brand"
-              style={{ textShadow: '0 0 60px rgba(182,131,50,0.4)' }}
-            >
-              DIFFERENT
-            </span>
-          </motion.h1>
+          {/* Logo — hero centrepiece */}
+          <motion.img
+            src={logo}
+            alt="Off Streets On Sports"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="h-44 sm:h-56 md:h-64 lg:h-72 w-auto mb-8"
+            style={{
+              filter:
+                'drop-shadow(0 0 55px rgba(182,131,50,0.5)) drop-shadow(0 0 20px rgba(182,131,50,0.3)) drop-shadow(0 4px 30px rgba(0,0,0,0.7))',
+            }}
+          />
 
-          {/* Thin rule */}
+          {/* Gold rule */}
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
-            transition={{ delay: 0.75, duration: 0.5, ease: 'easeOut' }}
-            className="w-12 h-px bg-brand/60 mx-auto mb-6 origin-left"
+            transition={{ delay: 0.75, duration: 0.55, ease: 'easeOut' }}
+            className="w-14 h-px bg-brand/55 mb-6 origin-center"
           />
 
-          {/* Subtitle */}
+          {/* Tagline */}
           <motion.p
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.6 }}
-            className="text-zinc-400 text-base md:text-lg max-w-sm mx-auto mb-10 font-medium leading-relaxed"
+            transition={{ delay: 0.88, duration: 0.6 }}
+            className="text-zinc-400 text-sm md:text-base max-w-xs mx-auto font-medium leading-relaxed mb-10 tracking-wide"
           >
-            Custom sportswear for fighters, clubs, gyms & performers — designed from scratch, built to last.
+            Fully custom sportswear, designed from scratch — for fighters, clubs, gyms & performers.
           </motion.p>
 
-          {/* Buttons */}
+          {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.05, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-5 justify-center items-center"
+            transition={{ delay: 1.02, duration: 0.6 }}
+            className="flex flex-col sm:flex-row gap-5 items-center"
           >
             <Link
               to="/customise"
-              className="bg-brand text-black font-black uppercase tracking-[0.12em] text-sm px-10 py-4 hover:bg-white transition-all duration-300 shadow-[0_0_30px_rgba(182,131,50,0.3)]"
+              className="bg-brand text-black font-black uppercase tracking-[0.12em] text-sm px-10 py-4 hover:bg-white transition-all duration-300 shadow-[0_0_35px_rgba(182,131,50,0.4)]"
             >
               Design Your Kit
             </Link>
@@ -226,20 +242,21 @@ export default function Landing() {
 
         </div>
 
-        {/* Scroll — simple bouncing arrow */}
+        {/* Scroll arrow */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.6, duration: 0.6 }}
+          transition={{ delay: 1.5, duration: 0.6 }}
           className="absolute bottom-8 z-20 text-zinc-500"
         >
           <motion.div
             animate={{ y: [0, 6, 0] }}
             transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
           >
-            <ChevronDown size={22} />
+            <ChevronDown size={20} />
           </motion.div>
         </motion.div>
+
       </div>
 
       {/* ── Ticker ─────────────────────────────────────────── */}
