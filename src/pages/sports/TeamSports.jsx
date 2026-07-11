@@ -34,7 +34,7 @@ export default function TeamSports() {
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={2} className="w-16 h-1 bg-brand mb-6" />
           <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={3}
             className="text-zinc-300 text-lg max-w-2xl leading-relaxed mb-8">
-            Custom rugby and football kits designed for your club, your colours, your identity. From grassroots to national leagues "” we kit teams of all sizes.
+            Custom rugby and football kits designed for your club, your colours, your identity. From grassroots to national leagues — we kit teams of all sizes.
           </motion.p>
           <motion.a variants={fadeUp} initial="hidden" animate="visible" custom={4}
             href="#enquiry"
@@ -70,8 +70,8 @@ export default function TeamSports() {
         {/* Features */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
           {[
-            { icon: Users, title: 'Any Size Squad', body: 'From a small 5-a-side team to a full 80-player club "” we handle orders of all sizes.' },
-            { icon: Award, title: 'Club Badging', body: 'Your crest, your sponsor logos, player names and numbers "” all included as standard.' },
+            { icon: Users, title: 'Any Size Squad', body: 'From a small 5-a-side team to a full 80-player club — we handle orders of all sizes.' },
+            { icon: Award, title: 'Club Badging', body: 'Your crest, your sponsor logos, player names and numbers — all included as standard.' },
             { icon: Truck, title: 'Nationwide Delivery', body: 'We deliver to clubs and teams all across the UK, direct to your door.' },
           ].map(({ icon: Icon, title, body }, i) => (
             <motion.div key={title} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i * 0.3}
@@ -87,7 +87,7 @@ export default function TeamSports() {
         <div id="enquiry" className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 md:p-12">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-8">
             <h2 className="text-3xl font-black uppercase tracking-tight mb-2">Get Your Club <span className="text-brand">Quote</span></h2>
-            <p className="text-zinc-400">Tell us about your club and what you need "” pricing confirmed within 24 hours.</p>
+            <p className="text-zinc-400">Tell us about your club and what you need — pricing confirmed within 24 hours.</p>
           </motion.div>
           <SportEnquiryForm sport="Rugby Kits" />
         </div>

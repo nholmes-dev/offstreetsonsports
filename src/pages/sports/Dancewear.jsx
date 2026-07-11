@@ -38,7 +38,7 @@ export default function Dancewear() {
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={2} className="w-16 h-1 bg-brand mb-6" />
           <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={3}
             className="text-zinc-300 text-lg max-w-2xl leading-relaxed mb-8">
-            Custom dancewear and performance costumes for dance schools, crews, and academies. From street dance to competition "” designed to make you stand out on stage.
+            Custom dancewear and performance costumes for dance schools, crews, and academies. From street dance to competition — designed to make you stand out on stage.
           </motion.p>
           <motion.a variants={fadeUp} initial="hidden" animate="visible" custom={4}
             href="#enquiry"
@@ -68,7 +68,7 @@ export default function Dancewear() {
           {[
             { icon: Sparkles, title: 'Stage-Ready Designs', body: 'Every costume is designed to look incredible under stage lights and in competition settings.' },
             { icon: Star, title: 'School & Academy Packages', body: 'Brand your dance school with custom apparel your students will be proud to wear.' },
-            { icon: Heart, title: 'Made with Passion', body: 'We care about every detail "” from the fabric to the finish, your dancers deserve the best.' },
+            { icon: Heart, title: 'Made with Passion', body: 'We care about every detail — from the fabric to the finish, your dancers deserve the best.' },
           ].map(({ icon: Icon, title, body }, i) => (
             <motion.div key={title} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i * 0.3}
               className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">

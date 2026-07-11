@@ -38,7 +38,7 @@ export default function CustomGear() {
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={2} className="w-16 h-1 bg-brand mb-6" />
           <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={3}
             className="text-zinc-300 text-lg max-w-2xl leading-relaxed mb-8">
-            Walkout flags, event gear, school uniforms, one-off custom pieces "” if it's wearable in sport, we can create it. Just tell us what you need.
+            Walkout flags, event gear, school uniforms, one-off custom pieces — if it's wearable in sport, we can create it. Just tell us what you need.
           </motion.p>
           <motion.a variants={fadeUp} initial="hidden" animate="visible" custom={4}
             href="#enquiry"
@@ -67,8 +67,8 @@ export default function CustomGear() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
           {[
             { icon: Palette, title: 'Fully Bespoke', body: 'No catalogues, no templates. Every piece starts with a blank canvas and your brief.' },
-            { icon: Flag, title: 'Fight Night Specialists', body: 'We\'ve created walkout gear for fighters at all levels "” from local shows to national events.' },
-            { icon: Package, title: 'No Order Too Small', body: 'Need just one flag or one hoodie? No problem "” we cater to individuals and large orders alike.' },
+            { icon: Flag, title: 'Fight Night Specialists', body: 'We\'ve created walkout gear for fighters at all levels — from local shows to national events.' },
+            { icon: Package, title: 'No Order Too Small', body: 'Need just one flag or one hoodie? No problem — we cater to individuals and large orders alike.' },
           ].map(({ icon: Icon, title, body }, i) => (
             <motion.div key={title} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i * 0.3}
               className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">

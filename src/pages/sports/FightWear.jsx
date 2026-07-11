@@ -10,9 +10,9 @@ const fadeUp = {
 };
 
 const products = [
-  { name: 'Fighter Bundles', desc: 'Ring Jacket + Fight Shorts + Top "” fully customised as a set', price: 'From £150' },
-  { name: 'Fight Shorts', desc: 'Standard and Gladiator styles "” custom design, name, and colours', price: 'From £120' },
-  { name: 'Ring / Walk-Out Jackets', desc: 'Make your entrance unforgettable "” fully personalised', price: 'From £80' },
+  { name: 'Fighter Bundles', desc: 'Ring Jacket + Fight Shorts + Top — fully customised as a set', price: 'From £150' },
+  { name: 'Fight Shorts', desc: 'Standard and Gladiator styles — custom design, name, and colours', price: 'From £120' },
+  { name: 'Ring / Walk-Out Jackets', desc: 'Make your entrance unforgettable — fully personalised', price: 'From £80' },
   { name: 'Training Kits', desc: 'T-shirt & shorts sets for gym and sparring sessions', price: 'From £40' },
   { name: 'Muay Thai Shorts', desc: 'Traditional cut with modern custom design', price: 'Price on enquiry' },
   { name: 'MMA Gear', desc: 'Shorts, rash guards, and full MMA kit packages', price: 'Price on enquiry' },
@@ -41,7 +41,7 @@ export default function FightWear() {
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={2} className="w-16 h-1 bg-brand mb-6" />
           <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={3}
             className="text-zinc-300 text-lg max-w-2xl leading-relaxed mb-8">
-            Custom boxing, MMA, Muay Thai, and BJJ apparel. From fight night bundles to training kits "” every piece is designed to carry your identity into the ring.
+            Custom boxing, MMA, Muay Thai, and BJJ apparel. From fight night bundles to training kits — every piece is designed to carry your identity into the ring.
           </motion.p>
           <motion.a variants={fadeUp} initial="hidden" animate="visible" custom={4}
             href="#enquiry"
@@ -55,7 +55,7 @@ export default function FightWear() {
       <div className="max-w-5xl mx-auto px-6 py-16">
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-10">
           <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight mb-2">What We <span className="text-brand">Create</span></h2>
-          <p className="text-zinc-500">Minimum orders apply on some items "” all pricing is confirmed on enquiry.</p>
+          <p className="text-zinc-500">Minimum orders apply on some items — all pricing is confirmed on enquiry.</p>
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
           {products.map((p, i) => (
@@ -71,8 +71,8 @@ export default function FightWear() {
         {/* Why us */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
           {[
-            { icon: Shield, title: 'Combat Sports Roots', body: 'We started in the fight world. We know what fighters need "” performance, identity, and kit that holds up.' },
-            { icon: Zap, title: 'Fully Custom', body: 'Your name, your gym, your colours. No templates "” every piece is designed from scratch for you.' },
+            { icon: Shield, title: 'Combat Sports Roots', body: 'We started in the fight world. We know what fighters need — performance, identity, and kit that holds up.' },
+            { icon: Zap, title: 'Fully Custom', body: 'Your name, your gym, your colours. No templates — every piece is designed from scratch for you.' },
             { icon: Star, title: 'Premium Quality', body: 'Materials built to last. Whether it\'s fight night or daily training, your kit performs as hard as you do.' },
           ].map(({ icon: Icon, title, body }, i) => (
             <motion.div key={title} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i * 0.3}
