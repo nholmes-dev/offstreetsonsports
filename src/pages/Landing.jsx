@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Mail, CreditCard, Paintbrush, Package, ChevronRight, ArrowRight } from 'lucide-react';
+import { Mail, CreditCard, Paintbrush, Package, ChevronRight, ChevronDown, ArrowRight } from 'lucide-react';
 
 import heroBg from '../fight2.jpg';
 import logo from '../logo.png';
@@ -148,61 +148,96 @@ export default function Landing() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0 scale-105"
           style={{ backgroundImage: `url(${heroBg})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/20 via-zinc-950/55 to-zinc-950/95 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/50 via-transparent to-zinc-950/50 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/15 via-zinc-950/50 to-zinc-950/95 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/60 via-transparent to-zinc-950/60 z-10" />
 
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.7 }}
-          className="relative z-20 text-center px-4"
-        >
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
+        <div className="relative z-20 text-center px-4 max-w-5xl mx-auto w-full">
+
+          {/* Eyebrow label */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="inline-flex items-center gap-2 border border-brand/50 text-brand text-xs font-black uppercase tracking-widest px-4 py-2 rounded-full mb-8 backdrop-blur-sm bg-zinc-950/20"
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="text-brand font-black uppercase tracking-[0.3em] text-[11px] mb-10"
           >
             Premium Custom Sportswear · UK Wide
-          </motion.div>
+          </motion.p>
 
-          <h1 className="text-[4.5rem] sm:text-8xl md:text-[9rem] lg:text-[11rem] font-black uppercase leading-none tracking-tighter mb-6 drop-shadow-2xl">
-            BUILT<br /><span className="text-brand">DIFFERENT</span>
-          </h1>
+          {/* Headline — outline BUILT + solid brand DIFFERENT */}
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.7 }}
+            className="mb-6"
+          >
+            <span
+              className="block text-[3.8rem] sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-[0.04em] leading-none mb-1"
+              style={{ WebkitTextStroke: '2px rgba(255,255,255,0.8)', color: 'transparent' }}
+            >
+              BUILT
+            </span>
+            <span
+              className="block text-[4.5rem] sm:text-8xl md:text-[9.5rem] lg:text-[11.5rem] font-black uppercase tracking-tighter leading-none text-brand"
+              style={{ textShadow: '0 0 60px rgba(182,131,50,0.4)' }}
+            >
+              DIFFERENT
+            </span>
+          </motion.h1>
 
-          <p className="text-zinc-300 text-lg md:text-xl max-w-lg mx-auto mb-10 drop-shadow-md font-medium leading-relaxed">
-            Custom sportswear for fighters, clubs, gyms & performers —<br className="hidden md:block" /> designed from scratch, built to last.
-          </p>
+          {/* Thin rule */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.75, duration: 0.5, ease: 'easeOut' }}
+            className="w-12 h-px bg-brand/60 mx-auto mb-6 origin-left"
+          />
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.6 }}
+            className="text-zinc-400 text-base md:text-lg max-w-sm mx-auto mb-10 font-medium leading-relaxed"
+          >
+            Custom sportswear for fighters, clubs, gyms & performers — designed from scratch, built to last.
+          </motion.p>
+
+          {/* Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.05, duration: 0.6 }}
+            className="flex flex-col sm:flex-row gap-5 justify-center items-center"
+          >
             <Link
               to="/customise"
-              className="bg-brand text-black font-black uppercase tracking-wide px-10 py-5 rounded-lg text-xl hover:bg-[#c99338] hover:scale-105 transition-all shadow-[0_0_35px_rgba(182,131,50,0.45)]"
+              className="bg-brand text-black font-black uppercase tracking-[0.12em] text-sm px-10 py-4 hover:bg-white transition-all duration-300 shadow-[0_0_30px_rgba(182,131,50,0.3)]"
             >
               Design Your Kit
             </Link>
             <a
               href="#sports"
-              className="border-2 border-white/25 text-white font-bold uppercase tracking-wide px-10 py-5 rounded-lg text-xl hover:border-brand hover:text-brand transition-all backdrop-blur-sm"
+              className="group flex items-center gap-2.5 text-zinc-400 font-bold uppercase tracking-[0.12em] text-sm hover:text-white transition-colors duration-200"
             >
               Our Sports
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-200" />
             </a>
-          </div>
-        </motion.div>
+          </motion.div>
 
+        </div>
+
+        {/* Scroll — simple bouncing arrow */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.4, duration: 0.6 }}
-          className="absolute bottom-8 z-20 flex flex-col items-center gap-2 text-zinc-400"
+          transition={{ delay: 1.6, duration: 0.6 }}
+          className="absolute bottom-8 z-20 text-zinc-500"
         >
-          <span className="text-[10px] uppercase tracking-widest font-bold">Scroll</span>
           <motion.div
             animate={{ y: [0, 6, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
-            className="w-5 h-8 border border-zinc-600/60 rounded-full flex items-start justify-center pt-1.5"
+            transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
           >
-            <div className="w-1 h-2 bg-brand rounded-full" />
+            <ChevronDown size={22} />
           </motion.div>
         </motion.div>
       </div>
