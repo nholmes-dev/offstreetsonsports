@@ -519,23 +519,11 @@ export default function Landing() {
       {/* ── CTA ────────────────────────────────────────────── */}
       <section className="relative overflow-hidden flex min-h-[500px]">
 
-        {/* Diagonal cut at very top — the dark section above bleeds in as a black triangle,
-            so the gold doesn't start with a straight horizontal line */}
-        <div
-          className="absolute top-0 inset-x-0 h-16 md:h-24 z-30 pointer-events-none"
-          style={{ background: 'linear-gradient(to bottom right, #09090b 50%, transparent 50%)' }}
-        />
+        {/* Soft gradient fade from the dark section above into gold */}
+        <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-zinc-950 to-transparent z-20 pointer-events-none" />
 
         {/* Left: brand gold panel */}
         <div className="relative z-10 bg-brand flex-1 flex items-center px-8 md:px-14 py-28 overflow-hidden">
-
-          {/* Diagonal pinstripes — sports-jersey graphic texture */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backgroundImage: 'repeating-linear-gradient(45deg, rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 2px, transparent 2px, transparent 22px)',
-            }}
-          />
 
           {/* Ghost "BUILT DIFFERENT" watermark at bottom of panel */}
           <div className="absolute bottom-0 left-0 right-0 overflow-hidden pointer-events-none select-none leading-none pb-1">
