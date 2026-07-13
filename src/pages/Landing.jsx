@@ -143,10 +143,10 @@ export default function Landing() {
     <div className="flex flex-col">
 
       {/* ── Hero ───────────────────────────────────────────── */}
-      <div className="relative flex flex-col md:flex-row min-h-screen overflow-hidden">
+      <div className="relative min-h-screen overflow-hidden flex flex-col md:flex-row">
 
-        {/* LEFT — B&W action photo */}
-        <div className="relative w-full h-[45vh] md:h-auto md:w-1/2 flex-shrink-0">
+        {/* PHOTO — full background on mobile, left half on desktop */}
+        <div className="absolute inset-0 md:relative md:inset-auto md:w-1/2 md:flex-shrink-0 md:min-h-screen">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
@@ -154,51 +154,49 @@ export default function Landing() {
               filter: 'grayscale(100%) contrast(1.2) brightness(0.55)',
             }}
           />
-          {/* Blend right edge into the text panel on desktop */}
+          {/* Mobile: dark overlay so text reads over the photo */}
+          <div className="absolute inset-0 bg-zinc-950/70 md:hidden" />
+          {/* Mobile: bottom fade into ticker */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-zinc-950 to-transparent md:hidden" />
+          {/* Desktop: right edge fades into text panel */}
           <div
             className="absolute inset-0 hidden md:block"
             style={{ background: 'linear-gradient(to right, transparent 55%, rgba(9,9,11,1) 100%)' }}
           />
-          {/* Bottom fade on mobile */}
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-zinc-950 to-transparent md:hidden" />
-
-          {/* Scroll arrow sits centre-bottom of the photo on desktop */}
+          {/* Desktop scroll arrow */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 0.6 }}
             className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-zinc-500 hidden md:block"
           >
-            <motion.div
-              animate={{ y: [0, 6, 0] }}
-              transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
-            >
+            <motion.div animate={{ y: [0, 6, 0] }} transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}>
               <ChevronDown size={20} />
             </motion.div>
           </motion.div>
         </div>
 
-        {/* RIGHT — Text panel */}
-        <div className="relative w-full md:w-1/2 bg-zinc-950 flex flex-col justify-center px-8 md:px-10 lg:px-16 pt-10 pb-10 md:py-0 md:min-h-screen">
+        {/* TEXT PANEL — centred overlay on mobile, right half on desktop */}
+        <div className="relative z-10 w-full md:w-1/2 md:bg-zinc-950 flex flex-col justify-center items-center text-center md:items-start md:text-left px-8 md:px-10 lg:px-16 min-h-screen md:min-h-screen py-24 md:py-0">
 
-          {/* Thin gold left-edge accent on desktop */}
-          <div className="hidden md:block absolute left-0 top-1/4 bottom-1/4 w-px bg-brand/25" />
-
-          {/* Logo watermark */}
+          {/* Logo watermark — desktop only (photo already fills bg on mobile) */}
           <img
             src={logo}
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-contain opacity-[0.12] pointer-events-none select-none p-8"
+            className="hidden md:block absolute inset-0 w-full h-full object-contain opacity-[0.12] pointer-events-none select-none p-8"
             style={{ filter: 'grayscale(100%) brightness(3)' }}
           />
 
-          {/* Gold rule — animates left-to-right */}
+          {/* Thin gold left-edge accent — desktop only */}
+          <div className="hidden md:block absolute left-0 top-1/4 bottom-1/4 w-px bg-brand/25" />
+
+          {/* Gold rule */}
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ delay: 0.2, duration: 0.5, ease: 'easeOut' }}
-            className="w-10 h-px bg-brand/50 mb-7 origin-left"
+            className="w-10 h-px bg-brand/50 mb-7 origin-center md:origin-left mx-auto md:mx-0"
           />
 
           {/* Eyebrow */}
@@ -213,14 +211,14 @@ export default function Landing() {
 
           {/* Main headline */}
           <motion.h1
-            initial={{ opacity: 0, x: 16 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
             className="font-black uppercase leading-none tracking-tighter mb-7"
           >
-            <span className="block text-white text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl">Fully</span>
-            <span className="block text-brand text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl">Custom</span>
-            <span className="block text-white text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl">Sportswear.</span>
+            <span className="block text-white text-5xl lg:text-6xl xl:text-7xl">Fully</span>
+            <span className="block text-brand text-5xl lg:text-6xl xl:text-7xl">Custom</span>
+            <span className="block text-white text-5xl lg:text-6xl xl:text-7xl">Sportswear.</span>
           </motion.h1>
 
           {/* Description */}
@@ -228,7 +226,7 @@ export default function Landing() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.65, duration: 0.6 }}
-            className="text-zinc-400 text-sm md:text-sm lg:text-base leading-relaxed mb-8 max-w-sm"
+            className="text-zinc-400 text-sm lg:text-base leading-relaxed mb-8 max-w-sm mx-auto md:mx-0"
           >
             Designed from scratch for fighters, clubs, gyms & performers. No templates — just your brief, built to perform.
           </motion.p>
@@ -238,7 +236,7 @@ export default function Landing() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.78, duration: 0.55 }}
-            className="flex flex-wrap gap-2 mb-9"
+            className="flex flex-wrap gap-2 mb-9 justify-center md:justify-start"
           >
             {[
               { label: 'Fight Wear',  href: '/fight-wear' },
@@ -262,7 +260,7 @@ export default function Landing() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.55 }}
-            className="flex flex-col sm:flex-row gap-4 items-start"
+            className="flex flex-col sm:flex-row gap-4 items-center md:items-start"
           >
             <Link
               to="/customise"
@@ -277,6 +275,18 @@ export default function Landing() {
               Our Sports
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-200" />
             </a>
+          </motion.div>
+
+          {/* Mobile scroll arrow */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.5, duration: 0.6 }}
+            className="absolute bottom-8 md:hidden text-zinc-500"
+          >
+            <motion.div animate={{ y: [0, 6, 0] }} transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}>
+              <ChevronDown size={20} />
+            </motion.div>
           </motion.div>
 
         </div>
