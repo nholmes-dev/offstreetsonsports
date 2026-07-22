@@ -40,11 +40,11 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 w-full z-50 border-b transition-colors duration-500 ${isHome && !isMenuOpen ? 'bg-transparent border-transparent' : 'bg-zinc-950/90 backdrop-blur-md border-zinc-800/50'}`}>
-      <div className="px-4 md:px-6 h-24 md:h-32 flex justify-between items-center">
+      <div className="px-4 md:px-6 h-28 md:h-44 flex justify-between items-center">
 
         {/* Logo */}
         <Link to="/" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 md:gap-3 shrink-0">
-          <img src={logo} alt="Off Streets On Sports" className="h-20 md:h-36 w-auto" />
+          <img src={logo} alt="Off Streets On Sports" className="h-24 md:h-40 w-auto" />
         </Link>
 
         {/* Desktop Nav */}
