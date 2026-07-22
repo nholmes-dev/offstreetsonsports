@@ -44,7 +44,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link to="/" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 md:gap-3 shrink-0">
-          <img src={logo} alt="Off Streets On Sports" className="h-16 md:h-32 w-auto md:mt-2" />
+          <img src={logo} alt="Off Streets On Sports" className="h-20 md:h-36 w-auto" />
         </Link>
 
         {/* Desktop Nav */}
