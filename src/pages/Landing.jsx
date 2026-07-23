@@ -6,7 +6,7 @@ import heroBg from '../fight2.jpg';
 import logo from '../logo.png';
 
 import fightWearImg from '../Great photo.jpg';
-import rugbyImg from '../rugby new.jpg';
+import rugbyImg from '../rugby-new.jpg';
 import footballImg from '../Football team.jpg';
 import gymImg from '../PT Gear 1.jpg';
 import danceImg from '../Dance team.jpg';
