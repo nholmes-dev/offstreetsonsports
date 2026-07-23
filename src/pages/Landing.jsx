@@ -76,7 +76,7 @@ const sports = [
   {
     name: 'Custom & Other',
     tagline: 'If You Dream It, We Make It',
-    desc: 'Walkout flags, event gear, school uniforms, one-off pieces — any sport, any brief.',
+    desc: 'Walkout flags, event gear, one-off pieces — any sport, any brief.',
     href: '/custom',
     img: customImg,
     accent: 'from-amber-950/80',
