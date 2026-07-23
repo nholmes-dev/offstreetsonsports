@@ -37,7 +37,7 @@ export default function CustomGear() {
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={2} className="w-16 h-1 bg-brand mb-6" />
           <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={3}
             className="text-zinc-300 text-lg max-w-2xl leading-relaxed mb-8">
-            Walkout flags, event gear, school uniforms, one-off custom pieces — if it's wearable in sport, we can create it. Just tell us what you need.
+            Walkout flags, event gear, one-off custom pieces — if it's wearable in sport, we can create it. Just tell us what you need.
           </motion.p>
           <motion.a variants={fadeUp} initial="hidden" animate="visible" custom={4}
             href="#enquiry"
