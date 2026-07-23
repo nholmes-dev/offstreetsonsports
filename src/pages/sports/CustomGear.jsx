@@ -13,7 +13,6 @@ const products = [
   { name: 'Walkout Banners', desc: 'Large format banners to fill your ringside', price: 'From £20' },
   { name: 'Custom Hoodies', desc: 'One-off or small batch custom hoodies', price: 'From £35' },
   { name: 'Event Apparel', desc: 'Custom clothing for events, promotions, or charities', price: 'Price on enquiry' },
-  { name: 'School Uniforms', desc: 'Custom PE kits and sports uniforms for schools', price: 'Price on enquiry' },
   { name: 'Anything Else?', desc: 'If you can wear it in sport, we can probably make it', price: 'Just ask' },
 ];
 
