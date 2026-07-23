@@ -6,7 +6,7 @@ import heroBg from '../fight2.jpg';
 import logo from '../logo.png';
 
 import fightWearImg from '../Great photo.jpg';
-import rugbyImg from '../Rugby shirt.jpg';
+import rugbyImg from '../rugby new.jpg';
 import footballImg from '../Football team.jpg';
 import gymImg from '../PT Gear 1.jpg';
 import danceImg from '../Dance team.jpg';
@@ -15,12 +15,13 @@ import customImg from '../team kit.jpg';
 import galleryFight from '../fight.jpg';
 import galleryRobe from '../Great photo.jpg';
 import galleryRobeBack from '../Great photo 1.jpg';
-import galleryBoxingGear from '../Boxing gear.jpg';
+import galleryBoxingGear from '../1.jpg';
 import galleryTeam from '../team photo.jpg';
 import galleryColour from '../colour kit.jpg';
 import galleryLioness from '../lioness.jpg';
-import galleryShorts from '../Boxing shorts.jpg';
-import galleryTraining from '../training kit.jpg';
+import galleryNew2 from '../2.jpg';
+import galleryNew3 from '../3.png';
+import galleryNew4 from '../4.jpg';
 
 const fadeUp = {
   hidden: { y: 40, opacity: 0 },
@@ -133,9 +134,9 @@ const galleryItems = [
   { img: galleryBoxingGear, label: 'Boxing Kit',     span: '' },
   { img: galleryTeam,       label: 'Club Team',      span: '' },
   { img: galleryColour,     label: 'Full Bundle',    span: '' },
-  { img: galleryLioness,    label: 'Custom Fit',     span: 'lg:col-span-2' },
-  { img: galleryShorts,     label: 'Boxing Shorts',  span: '' },
-  { img: galleryTraining,   label: 'Training Kit',   span: '' },
+  { img: galleryNew2,       label: 'Custom Fit',     span: 'lg:col-span-2' },
+  { img: galleryNew3,       label: 'Custom Kit',     span: '' },
+  { img: galleryNew4,       label: 'Custom Kit',     span: '' },
 ];
 
 export default function Landing() {
