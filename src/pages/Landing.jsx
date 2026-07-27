@@ -20,7 +20,7 @@ import galleryBoxingGear from '../1.jpg';
 import galleryTeam from '../team photo.jpg';
 import galleryColour from '../colour kit.jpg';
 import galleryLioness from '../lioness.jpg';
-import galleryNew2 from '../2.jpg';
+import galleryNew2 from '../disability shirt presentation.jpg';
 import galleryNew3 from '../3.png';
 import galleryNew4 from '../4.jpg';
 
