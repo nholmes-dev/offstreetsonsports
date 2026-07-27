@@ -282,10 +282,10 @@ export default function Customise() {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(buildSubmissionPayload()),
       });
-      res.ok ? setStatus('success') : (() => { setStatus('idle'); alert('There was an issue. Please try again.'); })();
+      const data = await res.json();
+      data.ok ? setStatus('success') : setStatus('error');
     } catch {
-      setStatus('idle');
-      alert('Network error. Please check your connection.');
+      setStatus('error');
     }
   };
 
@@ -305,6 +305,18 @@ export default function Customise() {
   };
 
   const isCustomerInfoValid = customerInfo.fullName.length > 2 && customerInfo.email.includes('@');
+
+  // ── Error screen ───────────────────────────────────────────────────────────
+  if (status === 'error') {
+    return (
+      <div className="max-w-2xl mx-auto p-6 text-center flex flex-col items-center justify-center min-h-[60vh]">
+        <h2 className="text-4xl font-black uppercase mb-4">Something Went Wrong</h2>
+        <p className="text-zinc-400 mb-4">Your request couldn't be submitted. Please try again or email us directly.</p>
+        <a href="mailto:offstreetsonsports@gmail.com" className="text-brand font-bold text-lg hover:underline mb-8">offstreetsonsports@gmail.com</a>
+        <button onClick={() => setStatus('idle')} className="bg-brand text-black px-6 py-3 rounded-lg font-bold hover:bg-[#c99338] transition-colors">Try Again</button>
+      </div>
+    );
+  }
 
   // ── Success screen ──────────────────────────────────────────────────────────
   if (status === 'success') {

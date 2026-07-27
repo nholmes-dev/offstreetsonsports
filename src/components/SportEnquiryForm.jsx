@@ -70,9 +70,10 @@ export default function SportEnquiryForm({ sport }) {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(payload),
       });
-      res.ok ? setStatus('success') : setStatus('idle');
+      const data = await res.json();
+      data.ok ? setStatus('success') : setStatus('error');
     } catch {
-      setStatus('idle');
+      setStatus('error');
     }
   };
 
@@ -160,6 +161,13 @@ export default function SportEnquiryForm({ sport }) {
           className="w-full bg-zinc-900 border border-zinc-700 focus:border-brand rounded-lg px-4 py-3 text-white text-sm outline-none transition-colors resize-none"
         />
       </motion.div>
+
+      {status === 'error' && (
+        <p className="text-red-400 text-sm text-center">
+          Something went wrong. Please try again or email us at{' '}
+          <a href="mailto:offstreetsonsports@gmail.com" className="underline font-bold">offstreetsonsports@gmail.com</a>
+        </p>
+      )}
 
       <button
         onClick={handleSubmit}

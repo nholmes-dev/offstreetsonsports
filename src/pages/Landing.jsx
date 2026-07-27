@@ -1,6 +1,7 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Mail, CreditCard, Paintbrush, Package, ChevronRight, ChevronDown, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Mail, CreditCard, Paintbrush, Package, ChevronRight, ChevronDown, ArrowRight, X } from 'lucide-react';
 
 import heroBg from '../fight2.jpg';
 import logo from '../logo.png';
@@ -140,6 +141,15 @@ const galleryItems = [
 ];
 
 export default function Landing() {
+  const [selectedImg, setSelectedImg] = useState(null);
+
+  useEffect(() => {
+    if (!selectedImg) return;
+    const handler = (e) => { if (e.key === 'Escape') setSelectedImg(null); };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [selectedImg]);
+
   return (
     <div className="flex flex-col">
 
@@ -478,6 +488,7 @@ export default function Landing() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 custom={i * 0.06}
+                onClick={() => setSelectedImg(item.img)}
                 className={`relative overflow-hidden rounded-xl group cursor-pointer ${item.span}`}
               >
                 <img
@@ -485,15 +496,38 @@ export default function Landing() {
                   alt={item.label}
                   className="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:scale-105 group-hover:brightness-100 transition-all duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                  <span className="text-white text-xs font-black uppercase tracking-wider drop-shadow">
-                    {item.label}
-                  </span>
-                </div>
               </motion.div>
             ))}
           </div>
+
+          <AnimatePresence>
+            {selectedImg && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                onClick={() => setSelectedImg(null)}
+                className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4"
+              >
+                <button
+                  onClick={() => setSelectedImg(null)}
+                  className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors"
+                >
+                  <X size={32} />
+                </button>
+                <motion.img
+                  src={selectedImg}
+                  initial={{ scale: 0.92, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.92, opacity: 0 }}
+                  transition={{ duration: 0.25 }}
+                  onClick={(e) => e.stopPropagation()}
+                  className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           <motion.div
             variants={fadeUp}
