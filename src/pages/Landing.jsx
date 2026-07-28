@@ -13,16 +13,17 @@ import gymImg from '../PT Gear 1.jpg';
 import danceImg from '../Dance team.jpg';
 import customImg from '../team kit.jpg';
 
-import galleryFight from '../fight.jpg';
-import galleryRobe from '../Great photo.jpg';
 import galleryRobeBack from '../Great photo 1.jpg';
-import galleryBoxingGear from '../fur.jpg';
-import galleryTeam from '../team photo.jpg';
-import galleryColour from '../colour kit.jpg';
 import galleryLioness from '../lioness.jpg';
-import galleryNew2 from '../disability shirt presentation.jpg';
-import galleryNew3 from '../3.png';
-import galleryNew4 from '../4.jpg';
+
+const galleryFight    = '/gallery/boxing-fight-action.jpg';
+const galleryRobe     = '/gallery/custom-boxing-robe.jpg';
+const galleryBoxingGear = '/gallery/fur-ring-jacket.jpg';
+const galleryTeam     = '/gallery/boxing-club-team.jpg';
+const galleryColour   = '/gallery/boxing-post-fight-hug.jpg';
+const galleryNew2     = '/gallery/wheelchair-kit-presentation.jpg';
+const galleryNew3     = '/gallery/boxer-ringside.png';
+const galleryNew4     = '/gallery/gabriel-sweeney-ring-jacket.jpg';
 
 const fadeUp = {
   hidden: { y: 40, opacity: 0 },
