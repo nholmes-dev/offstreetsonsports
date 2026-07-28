@@ -46,6 +46,7 @@ export default function SportEnquiryForm({ sport }) {
     ...Object.fromEntries(sportFields.map(f => [f.id, ''])),
   });
   const [status, setStatus] = useState('idle');
+  const [termsAccepted, setTermsAccepted] = useState(false);
 
   const set = (k, v) => setForm(p => ({ ...p, [k]: v }));
 
@@ -162,6 +163,16 @@ export default function SportEnquiryForm({ sport }) {
         />
       </motion.div>
 
+      <label className="flex items-start gap-3 cursor-pointer group">
+        <input type="checkbox" checked={termsAccepted} onChange={(e) => setTermsAccepted(e.target.checked)} className="mt-1 shrink-0 accent-brand w-4 h-4 cursor-pointer" />
+        <span className="text-sm text-zinc-400 group-hover:text-zinc-300 transition-colors leading-snug">
+          I have read and agree to the{' '}
+          <a href="/terms" target="_blank" rel="noreferrer" className="text-brand hover:underline font-bold">Terms & Disclaimer</a>
+          {' '}and{' '}
+          <a href="/privacy" target="_blank" rel="noreferrer" className="text-brand hover:underline font-bold">Privacy Policy</a>
+        </span>
+      </label>
+
       {status === 'error' && (
         <p className="text-red-400 text-sm text-center">
           Something went wrong. Please try again or email us at{' '}
@@ -171,7 +182,7 @@ export default function SportEnquiryForm({ sport }) {
 
       <button
         onClick={handleSubmit}
-        disabled={!isValid || status === 'submitting'}
+        disabled={!isValid || !termsAccepted || status === 'submitting'}
         className="w-full bg-brand text-black font-black uppercase tracking-wide py-4 rounded-lg text-lg hover:bg-[#c99338] transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(182,131,50,0.3)]"
       >
         <Send size={18} />
