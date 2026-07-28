@@ -16,7 +16,7 @@ import customImg from '../team kit.jpg';
 import galleryFight from '../fight.jpg';
 import galleryRobe from '../Great photo.jpg';
 import galleryRobeBack from '../Great photo 1.jpg';
-import galleryBoxingGear from '../1.jpg';
+import galleryBoxingGear from '../fur.jpg';
 import galleryTeam from '../team photo.jpg';
 import galleryColour from '../colour kit.jpg';
 import galleryLioness from '../lioness.jpg';
